@@ -17,6 +17,20 @@ const routes: Routes = [
     loadChildren: () =>
       import('./profile/profile.module').then((m) => m.ProfileModule),
   },
+  {
+    path: MENU_OPTIONS[3].path,
+    loadChildren: () =>
+      import('./details/game-detail/game-detail.module').then(
+        (m) => m.GameDetailModule
+      ),
+  },
+  {
+    path: MENU_OPTIONS[4].path,
+    loadChildren: () =>
+      import('./details/character-detail/character-detail.module').then(
+        (m) => m.CharacterDetailModule
+      ),
+  },
 ];
 
 @NgModule({

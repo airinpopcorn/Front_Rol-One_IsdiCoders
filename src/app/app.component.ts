@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { iMenuOptions } from 'src/interfaces/menu-options';
+import { iMenuOptions } from '../interfaces/menu-options';
 
 export const MENU_OPTIONS: Array<iMenuOptions> = [
   { path: 'home', label: 'Home' },
   { path: 'players', label: 'Players' },
   { path: 'profile', label: 'Profile' },
   { path: 'detail/:id', label: 'Game-detail' },
+  { path: 'char-detail/:id', label: 'Character-detail' },
 ];
 
 @Component({
