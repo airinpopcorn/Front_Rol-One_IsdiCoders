@@ -1,1 +1,7 @@
-<p>menu works!</p>
+<nav>
+  <ul>
+    <li *ngFor="let item of options">
+      <a [routerLink]="item.path">{{ item.label }}</a>
+    </li>
+  </ul>
+</nav>

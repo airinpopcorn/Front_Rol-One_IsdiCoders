@@ -1,0 +1,12 @@
+@import url("https://fonts.googleapis.com/css2?family=Goblin+One&family=Macondo&display=swap");
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+}
+
+li a {
+  font-family: "Macondo", cursive;
+  text-decoration: none;
+}
