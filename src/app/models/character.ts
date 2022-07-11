@@ -1,0 +1,44 @@
+export interface iCharacter {
+  id?: string;
+  player?: string;
+  idGame?: string;
+  name: string;
+  life: string;
+  strength: string;
+  intelligence: string;
+  constitution: string;
+  sanity?: string;
+  willingness?: string;
+  skill?: string;
+  violence?: string;
+  profession?: string;
+  reputation?: string;
+  tools?: Array<string>;
+  clan?: string;
+  perception?: string;
+  dexterity?: string;
+  awareness?: string;
+  weapon?: string;
+  shield?: string;
+  effort?: string;
+  injury?: string;
+  abilities?: [
+    {
+      name: string;
+      value: string;
+    }
+  ];
+  charisma?: string;
+  manipulation?: string;
+  appearence?: string;
+}
+
+export class CharacterModel implements iCharacter {
+  constructor(
+    public name: string,
+    public life: string,
+    public strength: string,
+    public intelligence: string,
+    public constitution: string
+  ) {}
+}
