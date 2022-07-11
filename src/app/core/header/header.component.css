@@ -1,0 +1,18 @@
+* {
+  margin: 0;
+}
+
+section {
+  display: flex;
+  justify-content: space-around;
+  align-content: center;
+  align-items: center;
+}
+
+.logoImg {
+  width: 18rem;
+}
+
+.logout {
+  width: 7rem;
+}
