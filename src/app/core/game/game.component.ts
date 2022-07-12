@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { GameModel } from '../../models/game';
+import { GameModel, iGameModel } from '../../models/game';
 import { Router } from '@angular/router';
 @Component({
   selector: 'app-game',
@@ -7,14 +7,14 @@ import { Router } from '@angular/router';
   styleUrls: ['./game.component.css'],
 })
 export class GameComponent implements OnInit {
-  @Input() game!: GameModel;
+  @Input() game!: iGameModel;
 
   constructor(public router: Router) {}
 
   ngOnInit(): void {}
 
   nextPage() {
-    this.router.navigate(['detail/1234']);
+    this.router.navigate(['detail/' + this.game._id]);
     console.log('Siguiente página');
   }
 }
