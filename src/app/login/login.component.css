@@ -1,0 +1,11 @@
+div {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin: auto;
+  width: 60vw;
+}
+.link {
+  cursor: pointer;
+}
