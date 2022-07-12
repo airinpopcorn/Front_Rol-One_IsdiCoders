@@ -1,5 +1,6 @@
 export interface iUserState {
   user: iUser;
+  token: string;
 }
 export interface iUser {
   _id?: string;

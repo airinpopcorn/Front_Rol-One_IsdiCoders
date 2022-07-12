@@ -31,6 +31,11 @@ const routes: Routes = [
         (m) => m.CharacterDetailModule
       ),
   },
+  {
+    path: MENU_OPTIONS[5].path,
+    loadChildren: () =>
+      import('./login/login.module').then((m) => m.LoginModule),
+  },
 ];
 
 @NgModule({
