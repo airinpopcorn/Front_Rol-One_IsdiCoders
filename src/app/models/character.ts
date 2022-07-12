@@ -1,3 +1,7 @@
+export interface iCharacterState {
+  characters: Array<iCharacter>;
+}
+
 export interface iCharacter {
   id?: string;
   player?: string;

@@ -1,3 +1,7 @@
+export interface iGameState {
+  games: Array<iGameModel>;
+}
+
 export interface iGameModel {
   id?: string;
   title: string;
