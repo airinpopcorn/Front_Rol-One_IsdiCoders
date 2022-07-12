@@ -6,7 +6,7 @@ import { iCharacter } from '../models/character';
 @Injectable({
   providedIn: 'root',
 })
-export class ApiGame {
+export class ApiCharacter {
   apiUrl: string;
   constructor(private http: HttpClient) {
     this.apiUrl = 'http://localhost:9500/character/';
@@ -16,7 +16,7 @@ export class ApiGame {
     return this.http.get(this.apiUrl) as Observable<Array<iCharacter>>;
   }
 
-  getOneCharacter(id: iCharacter['id']): Observable<Array<iCharacter>> {
+  getOneCharacter(id: iCharacter['_id']): Observable<Array<iCharacter>> {
     return this.http.get(this.apiUrl + id) as Observable<Array<iCharacter>>;
   }
 
@@ -26,12 +26,12 @@ export class ApiGame {
 
   updateCharacter(character: iCharacter): Observable<iCharacter> {
     return this.http.patch(
-      this.apiUrl + character.id,
+      this.apiUrl + character._id,
       character
     ) as Observable<iCharacter>;
   }
 
-  deleteCharacter(id: iCharacter['id']): Observable<iCharacter> {
+  deleteCharacter(id: iCharacter['_id']): Observable<iCharacter> {
     return this.http.delete(this.apiUrl + id) as Observable<iCharacter>;
   }
 }

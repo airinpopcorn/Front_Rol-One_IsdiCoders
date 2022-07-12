@@ -16,7 +16,7 @@ export class ApiGame {
     return this.http.get(this.apiUrl) as Observable<Array<iGameModel>>;
   }
 
-  getOneGame(id: iGameModel['id']): Observable<Array<iGameModel>> {
+  getOneGame(id: iGameModel['_id']): Observable<Array<iGameModel>> {
     return this.http.get(this.apiUrl + id) as Observable<Array<iGameModel>>;
   }
 }

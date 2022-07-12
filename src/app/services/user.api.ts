@@ -6,13 +6,13 @@ import { iUser } from '../models/user';
 @Injectable({
   providedIn: 'root',
 })
-export class ApiGame {
+export class ApiUser {
   apiUrl: string;
   constructor(private http: HttpClient) {
     this.apiUrl = 'http://localhost:9500/user/';
   }
 
-  getOneUser(id: iUser['id']): Observable<Array<iUser>> {
+  getOneUser(id: iUser['_id']): Observable<Array<iUser>> {
     return this.http.get(this.apiUrl + id) as Observable<Array<iUser>>;
   }
 
@@ -32,12 +32,12 @@ export class ApiGame {
 
   updateUser(character: iUser): Observable<iUser> {
     return this.http.patch(
-      this.apiUrl + character.id,
+      this.apiUrl + character._id,
       character
     ) as Observable<iUser>;
   }
 
-  deleteUser(id: iUser['id']): Observable<iUser> {
+  deleteUser(id: iUser['_id']): Observable<iUser> {
     return this.http.delete(this.apiUrl + id) as Observable<iUser>;
   }
 }
