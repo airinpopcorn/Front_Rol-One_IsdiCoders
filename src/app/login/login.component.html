@@ -1,1 +1,10 @@
-<app-login-form></app-login-form>
+<div>
+  <div *ngIf="!viewRegister; else register">
+    <app-login-form> </app-login-form>
+    <p><span class="link" (click)="toggleRegister()">Registrarse</span></p>
+  </div>
+  <ng-template #register>
+    <app-register-form> </app-register-form>
+    <p><span class="link" (click)="toggleRegister()">Volver</span></p>
+  </ng-template>
+</div>
