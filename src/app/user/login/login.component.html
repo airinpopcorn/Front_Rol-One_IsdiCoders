@@ -1,1 +1,15 @@
-<p>login works!</p>
+<form class="login" [formGroup]="loginForm">
+  <input
+    class="login__input"
+    type="text"
+    placeholder="email"
+    formControlName="userEmail"
+  />
+  <input
+    class="login__input"
+    type="password"
+    placeholder="password"
+    formControlName="password"
+  />
+  <button class="login__submit">Login</button>
+</form>
