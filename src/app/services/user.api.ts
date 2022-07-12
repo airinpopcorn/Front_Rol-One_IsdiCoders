@@ -27,13 +27,29 @@ export class ApiUser {
   }
 
   loginUser(
-    email: iUser['email'],
-    password: iUser['password']
+    loginData?: {
+      email: iUser['email'];
+      password: iUser['password'];
+    },
+    token?: string
   ): Observable<{ user: iUser; token: string }> {
-    return this.http.post(this.apiUrl + 'login', {
-      email,
-      password,
-    }) as Observable<{ user: iUser; token: string }>;
+    if (loginData) {
+      return this.http.post(this.apiUrl + 'login', loginData) as Observable<{
+        user: iUser;
+        token: string;
+      }>;
+    } else if (token) {
+      return this.http.post(
+        this.apiUrl + 'login',
+        {},
+        { headers: { Authorization: 'Bearer ' + token } }
+      ) as Observable<{ user: iUser; token: string }>;
+    } else {
+      return {} as Observable<{
+        user: iUser;
+        token: string;
+      }>;
+    }
   }
 
   updateUser(user: iUser): Observable<iUser> {
