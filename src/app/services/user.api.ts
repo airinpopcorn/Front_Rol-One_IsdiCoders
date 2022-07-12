@@ -12,12 +12,18 @@ export class ApiUser {
     this.apiUrl = 'http://localhost:9500/user/';
   }
 
-  getOneUser(id: iUser['_id']): Observable<Array<iUser>> {
-    return this.http.get(this.apiUrl + id) as Observable<Array<iUser>>;
+  getOneUser(id: iUser['_id']): Observable<iUser> {
+    return this.http.get(this.apiUrl + id) as Observable<iUser>;
   }
 
-  addUser(character: iUser): Observable<iUser> {
-    return this.http.post(this.apiUrl, character) as Observable<iUser>;
+  addUser(user: iUser): Observable<{
+    user: iUser;
+    token: string;
+  }> {
+    return this.http.post(this.apiUrl, user) as Observable<{
+      user: iUser;
+      token: string;
+    }>;
   }
 
   loginUser(
@@ -30,11 +36,8 @@ export class ApiUser {
     }) as Observable<{ user: iUser; token: string }>;
   }
 
-  updateUser(character: iUser): Observable<iUser> {
-    return this.http.patch(
-      this.apiUrl + character._id,
-      character
-    ) as Observable<iUser>;
+  updateUser(user: iUser): Observable<iUser> {
+    return this.http.patch(this.apiUrl + user._id, user) as Observable<iUser>;
   }
 
   deleteUser(id: iUser['_id']): Observable<iUser> {
