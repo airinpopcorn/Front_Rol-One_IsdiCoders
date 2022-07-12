@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-home',
-  template: `<app-game></app-game>`,
+  template: `<app-list-game></app-list-game>`,
   styleUrls: [],
 })
 export class HomeComponent implements OnInit {
