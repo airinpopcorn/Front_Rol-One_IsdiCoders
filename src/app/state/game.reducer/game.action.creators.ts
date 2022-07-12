@@ -3,5 +3,5 @@ import { iGameModel } from 'src/app/models/game';
 
 export const loadGame = createAction(
   '[Game List] Load Games',
-  props<{ game: iGameModel }>()
+  props<{ games: Array<iGameModel> }>()
 );

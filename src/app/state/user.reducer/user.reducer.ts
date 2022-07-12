@@ -1,8 +1,8 @@
 import { createReducer, on } from '@ngrx/store';
-import { iUser } from 'src/app/models/user';
+import { iUser, iUserState } from 'src/app/models/user';
 import * as ac from './user.action.creator';
 
-export const initialState = {
+export const initialState: iUserState = {
   user: {} as iUser,
 };
 

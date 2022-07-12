@@ -1,3 +1,6 @@
+export interface iUserState {
+  user: iUser;
+}
 export interface iUser {
   id?: string;
   name: string;
