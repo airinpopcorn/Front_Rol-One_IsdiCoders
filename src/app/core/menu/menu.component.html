@@ -1,7 +1,13 @@
 <nav>
   <ul>
-    <li *ngFor="let item of options">
-      <a [routerLink]="item.path">{{ item.label }}</a>
+    <li>
+      <button (click)="homePage()">Home</button>
+    </li>
+    <li>
+      <button (click)="playersPage()">Players</button>
+    </li>
+    <li>
+      <button (click)="profilePage()">Profile</button>
     </li>
   </ul>
 </nav>

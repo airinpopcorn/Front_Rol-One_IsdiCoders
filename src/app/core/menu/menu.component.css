@@ -6,7 +6,8 @@ nav ul {
   justify-content: space-around;
 }
 
-li a {
+li button {
   font-family: "Macondo", cursive;
-  text-decoration: none;
+  border: none;
+  background: none;
 }
