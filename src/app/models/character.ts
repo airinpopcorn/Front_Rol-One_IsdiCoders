@@ -3,7 +3,7 @@ export interface iCharacterState {
 }
 
 export interface iCharacter {
-  id?: string;
+  _id?: string;
   player?: string;
   idGame?: string;
   name: string;

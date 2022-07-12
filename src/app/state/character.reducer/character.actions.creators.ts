@@ -13,10 +13,10 @@ export const addCharacter = createAction(
 
 export const updateCharacter = createAction(
   '[Character List] Update Character',
-  props<{ id: iCharacter['id']; updatedCharacter: iCharacter }>()
+  props<{ id: iCharacter['_id']; updatedCharacter: iCharacter }>()
 );
 
 export const deleteCharacter = createAction(
   '[Character List] Delete Character',
-  props<{ idDelete: iCharacter['id'] }>()
+  props<{ idDelete: iCharacter['_id'] }>()
 );

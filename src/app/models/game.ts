@@ -3,7 +3,7 @@ export interface iGameState {
 }
 
 export interface iGameModel {
-  id?: string;
+  _id?: string;
   title: string;
   creator: string;
   description: string;

@@ -16,14 +16,14 @@ export const characterReducer = createReducer(
   })),
   on(ac.updateCharacter, (state, { updatedCharacter }) => ({
     characters: state.characters.map((character) =>
-      character.id === updatedCharacter.id
+      character._id === updatedCharacter._id
         ? { ...character, ...updatedCharacter }
         : character
     ),
   })),
   on(ac.deleteCharacter, (state, { idDelete }) => ({
     characters: state.characters.filter(
-      (character) => character.id !== idDelete
+      (character) => character._id !== idDelete
     ),
   }))
 );

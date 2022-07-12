@@ -7,6 +7,7 @@ import { ListCharacterComponent } from './list-character/list-character.componen
 import { RouterModule } from '@angular/router';
 import { CoreRoutingModule } from './core-routing.module';
 import { GameComponent } from './game/game.component';
+import { ListGameComponent } from './list-game/list-game.component';
 
 @NgModule({
   declarations: [
@@ -15,8 +16,9 @@ import { GameComponent } from './game/game.component';
     CharacterComponent,
     ListCharacterComponent,
     GameComponent,
+    ListGameComponent,
   ],
   imports: [CommonModule, RouterModule, CoreRoutingModule],
-  exports: [HeaderComponent, MenuComponent, GameComponent],
+  exports: [HeaderComponent, MenuComponent, GameComponent, ListGameComponent],
 })
 export class CoreModule {}

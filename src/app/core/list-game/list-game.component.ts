@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { GameModel } from 'src/app/models/game';
+import { Store } from '@ngrx/store';
+import { iGameModel } from 'src/app/models/game';
+import { AppState } from 'src/app/state/app.state';
 
 @Component({
   selector: 'app-list-game',
@@ -7,8 +9,12 @@ import { GameModel } from 'src/app/models/game';
   styleUrls: ['./list-game.component.css'],
 })
 export class ListGameComponent implements OnInit {
-  games!: Array<GameModel>;
-  constructor() {}
+  games!: Array<iGameModel>;
+  constructor(public store: Store<AppState>) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.store
+      .select((state) => state.games)
+      .subscribe({ next: (data) => (this.games = data.games) });
+  }
 }
