@@ -18,7 +18,6 @@ export class ApiUser {
 
   addUser(user: iUser): Observable<{
     user: iUser;
-    token: string;
   }> {
     return this.http.post(this.apiUrl, user) as Observable<{
       user: iUser;

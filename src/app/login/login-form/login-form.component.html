@@ -1,5 +1,19 @@
 <form class="login">
-  <input class="login__input" type="text" placeholder="email" />
-  <input class="login__input" type="password" placeholder="password" />
-  <button class="login__submit">Login</button>
+  <input
+    name="email"
+    class="login__input"
+    type="text"
+    placeholder="email"
+    [(ngModel)]="dataUser.email"
+  />
+  <input
+    name="password"
+    class="login__input"
+    type="password"
+    placeholder="password"
+    [(ngModel)]="dataUser.password"
+  />
+  <button class="login__submit" type="submit" (click)="handleSubmit()">
+    Login
+  </button>
 </form>
