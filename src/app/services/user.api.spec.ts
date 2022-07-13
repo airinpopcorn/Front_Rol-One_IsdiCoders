@@ -5,7 +5,6 @@ import {
 import { TestBed } from '@angular/core/testing';
 import { Observable } from 'rxjs';
 import { iUser, iUserState } from '../models/user';
-import { userReducer } from '../state/user.reducer/user.reducer';
 import { ApiUser } from './user.api';
 
 describe('ApiUser', () => {
