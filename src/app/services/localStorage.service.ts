@@ -7,18 +7,18 @@ import { Observable } from 'rxjs';
 })
 export class LocalStorageService {
   getToken(): string | null {
-    const userToken = localStorage.getItem('user-token');
+    const userToken = localStorage.getItem('token');
     if (userToken) {
-      return JSON.parse(userToken);
+      return userToken;
     }
     return null;
   }
 
   saveToken(data: string) {
-    return localStorage.setItem('user-token', JSON.stringify(data));
+    return localStorage.setItem('token', data);
   }
 
   clearToken() {
-    localStorage.removeItem('user-token');
+    localStorage.removeItem('token');
   }
 }

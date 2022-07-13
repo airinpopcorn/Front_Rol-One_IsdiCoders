@@ -8,8 +8,8 @@ export interface iUser {
   email: string;
   password: string;
   role: string;
-  characters: Array<string>;
-  games: Array<string>;
+  characters?: Array<string>;
+  games?: Array<string>;
 }
 
 export class UserModel implements iUser {
