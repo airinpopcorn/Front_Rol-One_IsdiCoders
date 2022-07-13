@@ -21,7 +21,6 @@ export const MENU_OPTIONS: Array<iMenuOptions> = [
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent implements OnInit {
-  title = 'Irene_Alonso_Front-Final-Project-202205-MAD';
   menuOptions: Array<iMenuOptions>;
   constructor(public store: Store<AppState>, public game: ApiGame) {
     this.menuOptions = MENU_OPTIONS;
