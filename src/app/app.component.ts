@@ -36,7 +36,6 @@ export class AppComponent implements OnInit {
   }
   ngOnInit(): void {
     this.token = this.localStorage.getToken() as string;
-    console.log(this.token);
 
     this.game
       .getGames()
