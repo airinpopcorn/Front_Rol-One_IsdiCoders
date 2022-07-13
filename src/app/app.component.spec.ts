@@ -42,15 +42,18 @@ describe('AppComponent', () => {
   });
 
   describe('When loading the app', () => {
-    it('Should fetch games data from the api', () => {
+    it('Should fetch games data from the apiGame', () => {
       const fixture = TestBed.createComponent(AppComponent);
       const component = fixture.componentInstance;
       spyOn(component.game, 'getGames').and.returnValue(of([]));
+      spyOn(component.apiUser, 'loginUser').and.returnValue(
+        of({ user: { name: '', email: '', password: '', role: '' }, token: '' })
+      );
       spyOn(component.store, 'dispatch');
 
       fixture.detectChanges();
 
-      expect(component.store.dispatch).toHaveBeenCalled();
+      expect(component.store.dispatch).toHaveBeenCalledTimes(2);
     });
   });
 });
