@@ -10,8 +10,10 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { filter } from 'rxjs';
 import { iGameModel, iGameState } from 'src/app/models/game';
+import { ApiCharacter } from 'src/app/services/characters.api';
 import { ApiGame } from 'src/app/services/game.api';
 import { AppState } from 'src/app/state/app.state';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-create-char',
@@ -20,6 +22,7 @@ import { AppState } from 'src/app/state/app.state';
 })
 export class CreateCharComponent implements OnInit {
   allGames!: iGameState;
+  token!: string;
   filterGame!: {
     title: string;
     creator: string;
@@ -37,20 +40,50 @@ export class CreateCharComponent implements OnInit {
   formControlNameList: string[] = [];
   characterForm!: FormGroup;
   idGame = this.route.snapshot.paramMap.get('id') as string;
+  idUser!: string;
   constructor(
     public route: ActivatedRoute,
     public fb: FormBuilder,
     public store: Store<AppState>,
     public router: Router,
-    public apiGame: ApiGame
+    public apiGame: ApiGame,
+    public apiCharacter: ApiCharacter
   ) {}
 
   handleSubmit() {
     this.characterForm.valid;
-    console.log(this.characterForm.value);
+    this.characterForm.value.idGame = this.idGame;
+    this.characterForm.value.player = this.idUser;
+    this.apiCharacter
+      .addCharacter(this.characterForm.value, this.token)
+      .subscribe({
+        next: (data) => {
+          Swal.fire({
+            icon: 'success',
+            title: 'Yuhuuu...',
+            text: 'You create your character correctly',
+          });
+        },
+        error: (err) => {
+          Swal.fire({
+            icon: 'error',
+            title: 'Ooops...',
+            text: 'Something went wrong',
+          });
+        },
+      });
+    this.characterForm.reset();
   }
 
   ngOnInit(): void {
+    this.store
+      .select((state) => state.users)
+      .subscribe({
+        next: (data) => {
+          this.idUser = data.user._id as string;
+          this.token = data.token;
+        },
+      });
     this.apiGame.getOneGame(this.idGame).subscribe({
       next: (data) => {
         this.filterGame = data;
