@@ -5,6 +5,7 @@ import { Store } from '@ngrx/store';
 import { iGameModel, iGameState } from 'src/app/models/game';
 import { ApiGame } from 'src/app/services/game.api';
 import { AppState } from 'src/app/state/app.state';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-game-detail',
@@ -31,13 +32,6 @@ export class GameDetailComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    // this.store
-    //   .select((state) => state.games)
-    //   .subscribe({
-    //     next: (data) => {
-    //       this.allGames = data;
-    //     },
-    //   });
     this.store
       .select((state) => state.users)
       .subscribe({
@@ -50,15 +44,18 @@ export class GameDetailComponent implements OnInit {
         this.filterGame = data;
       },
     });
-
-    // this.filterGame = this.allGames.games.find(
-    //   (game) => game._id === this.idGame
-    // ) as iGameModel;
   }
 
   goCreateCharacter() {
     if (this.token) {
       this.router.navigate(['create-character/' + this.idGame]);
+    } else {
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'You need to login',
+      });
+      this.router.navigate(['login']);
     }
   }
 }
