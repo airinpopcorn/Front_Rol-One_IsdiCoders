@@ -33,7 +33,6 @@ export class LoginFormComponent implements OnInit {
         this.router.navigate(['home']);
       },
       error: (err) => {
-        console.log(err);
         Swal.fire({
           icon: 'error',
           title: 'Oops...',
@@ -41,6 +40,5 @@ export class LoginFormComponent implements OnInit {
         });
       },
     });
-    console.log(this.dataUser);
   }
 }
