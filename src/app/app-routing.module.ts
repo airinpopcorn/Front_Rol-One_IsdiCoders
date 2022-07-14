@@ -40,6 +40,13 @@ const routes: Routes = [
     loadChildren: () =>
       import('./login/login.module').then((m) => m.LoginModule),
   },
+  {
+    path: MENU_OPTIONS[7].path,
+    loadChildren: () =>
+      import('./forms/create-char/create-char.module').then(
+        (m) => m.CreateCharModule
+      ),
+  },
 ];
 
 @NgModule({

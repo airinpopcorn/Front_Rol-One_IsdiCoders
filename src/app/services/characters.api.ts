@@ -20,8 +20,13 @@ export class ApiCharacter {
     return this.http.get(this.apiUrl + id) as Observable<Array<iCharacter>>;
   }
 
-  addCharacter(character: iCharacter): Observable<iCharacter> {
-    return this.http.post(this.apiUrl, character) as Observable<iCharacter>;
+  addCharacter(
+    character: iCharacter,
+    authToken: string
+  ): Observable<iCharacter> {
+    return this.http.post(this.apiUrl, character, {
+      headers: { Authorization: 'Bearer ' + authToken },
+    }) as Observable<iCharacter>;
   }
 
   updateCharacter(character: iCharacter): Observable<iCharacter> {

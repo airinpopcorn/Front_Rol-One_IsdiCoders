@@ -1,1 +1,20 @@
-<p>create-char works!</p>
+<div class="createCharForm" *ngIf="filterGame">
+  <img
+    class="imageGame"
+    src="{{ filterGame.image }}"
+    alt="Foto de {{ filterGame.title }}"
+  />
+  <h3 class="charTitle">Create your character of "{{ filterGame.title }}"</h3>
+  <form [formGroup]="characterForm">
+    <input
+      *ngFor="let control of fbGroupData | keyvalue"
+      class="createChar__input"
+      type="text"
+      name="{{ control.key }}"
+      placeholder="{{ control.key }}"
+      [formControlName]="control.key"
+    />
+
+    <button (click)="handleSubmit()">CREATE</button>
+  </form>
+</div>
