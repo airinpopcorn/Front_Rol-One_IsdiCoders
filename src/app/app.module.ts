@@ -23,6 +23,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
       maxAge: 25,
       logOnly: environment.production,
     }),
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
