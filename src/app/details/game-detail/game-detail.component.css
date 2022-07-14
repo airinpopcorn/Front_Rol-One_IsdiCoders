@@ -1,0 +1,16 @@
+@import url("https://fonts.googleapis.com/css2?family=Goblin+One&family=Macondo&display=swap");
+
+* {
+  margin: 0;
+  font-family: "Macondo", cursive;
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.gameImg {
+  width: 20rem;
+}
