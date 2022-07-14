@@ -1,5 +1,6 @@
+import { ThisReceiver } from '@angular/compiler';
 import { Component, Input, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { iGameModel, iGameState } from 'src/app/models/game';
 import { ApiGame } from 'src/app/services/game.api';
@@ -20,11 +21,13 @@ export class GameDetailComponent implements OnInit {
     characters: Array<string>;
     template: Object;
   };
+  token!: string;
   idGame = this.route.snapshot.paramMap.get('id') as string;
   constructor(
     public route: ActivatedRoute,
     public store: Store<AppState>,
-    public apiGame: ApiGame
+    public apiGame: ApiGame,
+    public router: Router
   ) {}
 
   ngOnInit(): void {
@@ -35,7 +38,13 @@ export class GameDetailComponent implements OnInit {
     //       this.allGames = data;
     //     },
     //   });
-
+    this.store
+      .select((state) => state.users)
+      .subscribe({
+        next: (data) => {
+          this.token = data.token;
+        },
+      });
     this.apiGame.getOneGame(this.idGame).subscribe({
       next: (data) => {
         this.filterGame = data;
@@ -45,5 +54,11 @@ export class GameDetailComponent implements OnInit {
     // this.filterGame = this.allGames.games.find(
     //   (game) => game._id === this.idGame
     // ) as iGameModel;
+  }
+
+  goCreateCharacter() {
+    if (this.token) {
+      this.router.navigate(['create-character/' + this.idGame]);
+    }
   }
 }
