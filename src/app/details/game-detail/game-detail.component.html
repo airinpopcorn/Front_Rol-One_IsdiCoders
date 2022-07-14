@@ -1,1 +1,11 @@
-<p>game-detail works!</p>
+<section *ngIf="filterGame">
+  <img
+    class="gameImg"
+    src="{{ filterGame.image }}"
+    alt="Foto del juego {{ filterGame.title }}"
+  />
+  <h2 class="gameTitle">{{ filterGame.title }}</h2>
+  <h3 class="gameCreator">{{ filterGame.creator }}</h3>
+  <p>{{ filterGame.description }}</p>
+  <button>Create character</button>
+</section>
