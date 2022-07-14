@@ -8,7 +8,7 @@ import { iGameModel } from '../models/game';
 })
 export class ApiGame {
   apiUrl: string;
-  constructor(private http: HttpClient) {
+  constructor(public http: HttpClient) {
     this.apiUrl = 'http://localhost:9500/game/';
   }
 
@@ -16,7 +16,7 @@ export class ApiGame {
     return this.http.get(this.apiUrl) as Observable<Array<iGameModel>>;
   }
 
-  getOneGame(id: iGameModel['_id']): Observable<Array<iGameModel>> {
-    return this.http.get(this.apiUrl + id) as Observable<Array<iGameModel>>;
+  getOneGame(id: iGameModel['_id']): Observable<iGameModel> {
+    return this.http.get(this.apiUrl + id) as Observable<iGameModel>;
   }
 }

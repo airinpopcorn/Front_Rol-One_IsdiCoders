@@ -10,6 +10,7 @@ import { loadUser } from './state/user.reducer/user.action.creator';
 import { LocalStorageService } from './services/localStorage.service';
 
 export const MENU_OPTIONS: Array<iMenuOptions> = [
+  { path: '', label: 'Home' },
   { path: 'home', label: 'Home' },
   { path: 'players', label: 'Players' },
   { path: 'profile', label: 'Profile' },

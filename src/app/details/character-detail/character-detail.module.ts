@@ -12,7 +12,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class CharacterDetailModule implements OnInit {
   idCharacter = this.route.snapshot.paramMap.get('id') as string;
-  constructor(private route: ActivatedRoute) {}
+  constructor(public route: ActivatedRoute) {}
 
   ngOnInit(): void {
     console.log(this.idCharacter);

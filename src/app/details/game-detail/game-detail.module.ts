@@ -10,11 +10,4 @@ import { ActivatedRoute } from '@angular/router';
   declarations: [GameDetailComponent],
   imports: [CommonModule, GameDetailRoutingModule, CoreModule],
 })
-export class GameDetailModule implements OnInit {
-  idGame = this.route.snapshot.paramMap.get('id') as string;
-  constructor(private route: ActivatedRoute) {}
-
-  ngOnInit(): void {
-    console.log(this.idGame);
-  }
-}
+export class GameDetailModule {}

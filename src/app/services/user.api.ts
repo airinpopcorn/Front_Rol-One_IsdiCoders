@@ -8,7 +8,7 @@ import { iUser } from '../models/user';
 })
 export class ApiUser {
   apiUrl: string;
-  constructor(private http: HttpClient) {
+  constructor(public http: HttpClient) {
     this.apiUrl = 'http://localhost:9500/user/';
   }
 

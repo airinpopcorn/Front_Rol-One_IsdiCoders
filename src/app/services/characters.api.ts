@@ -8,7 +8,7 @@ import { iCharacter } from '../models/character';
 })
 export class ApiCharacter {
   apiUrl: string;
-  constructor(private http: HttpClient) {
+  constructor(public http: HttpClient) {
     this.apiUrl = 'http://localhost:9500/character/';
   }
 
