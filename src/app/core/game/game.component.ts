@@ -15,6 +15,5 @@ export class GameComponent implements OnInit {
 
   nextPage() {
     this.router.navigate(['detail/' + this.game._id]);
-    console.log('Siguiente página');
   }
 }
