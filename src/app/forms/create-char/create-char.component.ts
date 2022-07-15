@@ -8,8 +8,7 @@ import {
 } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { filter } from 'rxjs';
-import { iGameModel, iGameState } from 'src/app/models/game';
+import { iGameState } from 'src/app/models/game';
 import { ApiCharacter } from 'src/app/services/characters.api';
 import { ApiGame } from 'src/app/services/game.api';
 import { AppState } from 'src/app/state/app.state';
@@ -29,7 +28,7 @@ export class CreateCharComponent implements OnInit {
     description: string;
     image: string;
     characters: Array<string>;
-    template: Object;
+    template: { [key: string]: string };
   };
   fbGroupData: {
     [key: string]: [
@@ -37,9 +36,8 @@ export class CreateCharComponent implements OnInit {
       [(control: AbstractControl<any, any>) => ValidationErrors | null]
     ];
   } = {};
-  formControlNameList: string[] = [];
   characterForm!: FormGroup;
-  idGame = this.route.snapshot.paramMap.get('id') as string;
+  idGame!: string;
   idUser!: string;
   constructor(
     public route: ActivatedRoute,
@@ -76,6 +74,7 @@ export class CreateCharComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.idGame = this.route.snapshot.paramMap.get('id') as string;
     this.store
       .select((state) => state.users)
       .subscribe({
@@ -90,7 +89,6 @@ export class CreateCharComponent implements OnInit {
 
         Object.entries(this.filterGame.template).forEach((entry) => {
           this.fbGroupData[entry[0]] = ['', [Validators.required]];
-          this.formControlNameList.push(entry[0]);
         });
         this.characterForm = this.fb.group(this.fbGroupData);
       },
