@@ -13,6 +13,7 @@ import { loadUser } from '../state/user.reducer/user.action.creator';
 })
 export class LoginComponent implements OnInit {
   viewRegister!: boolean;
+  token!: string;
   constructor(
     public store: Store<AppState>,
     public router: Router,
@@ -21,9 +22,9 @@ export class LoginComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    const token = this.localStorage.getToken();
-    if (token) {
-      this.apiUser.loginUser(undefined, token).subscribe({
+    this.token = this.localStorage.getToken() as string;
+    if (this.token) {
+      this.apiUser.loginUser(undefined, this.token).subscribe({
         next: (data) => {
           if (data.token) {
             this.store.dispatch(
