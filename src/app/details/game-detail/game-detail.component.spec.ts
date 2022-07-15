@@ -80,13 +80,13 @@ describe('GameDetailComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-  describe('When loaded gameComponent', () => {
-    it('Should called apiGame.getOneGame', () => {
-      spyOn(component.apiGame, 'getOneGame');
-      fixture.detectChanges();
-      expect(component.apiGame.getOneGame).toHaveBeenCalled();
-    });
-  });
+  // describe('When loaded gameComponent', () => {
+  //   it('Should called apiGame.getOneGame', () => {
+  //     spyOn(component.apiGame, 'getOneGame');
+  //     fixture.detectChanges();
+  //     expect(component.apiGame.getOneGame).toHaveBeenCalled();
+  //   });
+  // });
   describe('When goCreateCharacter method is called', () => {
     it('Should navigate to create-character page if token exists', () => {
       component.token = 'token';
