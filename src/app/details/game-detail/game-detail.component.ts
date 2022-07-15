@@ -1,8 +1,7 @@
-import { ThisReceiver } from '@angular/compiler';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { iGameModel, iGameState } from 'src/app/models/game';
+import { iGameState } from 'src/app/models/game';
 import { ApiGame } from 'src/app/services/game.api';
 import { AppState } from 'src/app/state/app.state';
 import Swal from 'sweetalert2';
@@ -23,7 +22,7 @@ export class GameDetailComponent implements OnInit {
     template: Object;
   };
   token!: string;
-  idGame = this.route.snapshot.paramMap.get('id') as string;
+  idGame!: string;
   constructor(
     public route: ActivatedRoute,
     public store: Store<AppState>,
@@ -32,6 +31,12 @@ export class GameDetailComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.idGame = this.route.snapshot.paramMap.get('id') as string;
+    this.apiGame.getOneGame(this.idGame).subscribe({
+      next: (data) => {
+        this.filterGame = data;
+      },
+    });
     this.store
       .select((state) => state.users)
       .subscribe({
@@ -39,11 +44,6 @@ export class GameDetailComponent implements OnInit {
           this.token = data.token;
         },
       });
-    this.apiGame.getOneGame(this.idGame).subscribe({
-      next: (data) => {
-        this.filterGame = data;
-      },
-    });
   }
 
   goCreateCharacter() {
