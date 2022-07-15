@@ -30,4 +30,12 @@ describe('GameComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+  describe('When calling nextPage method', () => {
+    it('Should be navigate to detail page', () => {
+      spyOn(component.router, 'navigate');
+      fixture.detectChanges();
+      component.nextPage();
+      expect(component.router.navigate).toHaveBeenCalled();
+    });
+  });
 });

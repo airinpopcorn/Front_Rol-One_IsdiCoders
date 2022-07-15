@@ -15,6 +15,5 @@ export class CharacterComponent implements OnInit {
 
   nextPage() {
     this.router.navigate(['char-detail/1234']);
-    console.log('Siguiente página');
   }
 }

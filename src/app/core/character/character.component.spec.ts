@@ -21,4 +21,12 @@ describe('CharacterComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+  describe('When nextPage method is called', () => {
+    it('Should navigate to character detail page', () => {
+      spyOn(component.router, 'navigate');
+      fixture.detectChanges();
+      component.nextPage();
+      expect(component.router.navigate).toHaveBeenCalled();
+    });
+  });
 });

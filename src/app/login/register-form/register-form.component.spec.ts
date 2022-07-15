@@ -2,6 +2,9 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { provideMockStore } from '@ngrx/store/testing';
+import { Observable, of } from 'rxjs';
+import { iUser } from 'src/app/models/user';
+import Swal from 'sweetalert2';
 
 import { RegisterFormComponent } from './register-form.component';
 
@@ -43,5 +46,35 @@ describe('RegisterFormComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+  describe('When calling handleClick method with correct data', () => {
+    it('Should be called apiUser.addUser', () => {
+      component.dataUser = {
+        name: '',
+        email: '',
+        password: '',
+        role: 'master',
+      };
+      spyOn(component.apiUser, 'addUser').and.returnValue(
+        of({ user: {} as iUser, token: 'token' })
+      );
+      spyOn(component.route, 'navigate');
+      fixture.detectChanges();
+      component.handleClick();
+      expect(component.apiUser.addUser).toHaveBeenCalled();
+    });
+  });
+  describe('When calling handleClick method with incorrect data', () => {
+    it('Should be called apiUser.addUser and throw and error', () => {
+      spyOn(component.apiUser, 'addUser').and.returnValue(
+        new Observable(() => {
+          throw new Error();
+        })
+      );
+      spyOn(Swal, 'fire');
+      fixture.detectChanges();
+      component.handleClick();
+      expect(Swal.fire).toHaveBeenCalled();
+    });
   });
 });
