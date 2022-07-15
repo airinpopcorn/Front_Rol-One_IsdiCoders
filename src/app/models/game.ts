@@ -9,7 +9,7 @@ export interface iGameModel {
   description: string;
   image: string;
   characters: Array<string>;
-  template: Object;
+  template: { [key: string]: string };
 }
 
 export class GameModel implements iGameModel {
@@ -19,6 +19,6 @@ export class GameModel implements iGameModel {
     public description: string,
     public image: string,
     public characters: Array<string>,
-    public template: Object
+    public template: { [key: string]: string }
   ) {}
 }
