@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { iGameModel } from 'src/app/models/game';
 import { AppState } from 'src/app/state/app.state';
