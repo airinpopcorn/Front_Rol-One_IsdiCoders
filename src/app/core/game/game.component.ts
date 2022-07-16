@@ -10,7 +10,6 @@ export class GameComponent implements OnInit {
   @Input() game!: iGameModel;
   @Input() redirigir!: boolean;
 
-  // @Input() gamePlayer!: iGameModel;
   constructor(public router: Router) {}
 
   ngOnInit(): void {}
@@ -20,6 +19,6 @@ export class GameComponent implements OnInit {
   }
 
   charPage() {
-    this.router.navigate(['character-in-game']);
+    this.router.navigate(['char-in-game']);
   }
 }
