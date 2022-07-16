@@ -1,4 +1,4 @@
-<section>
+<section *ngIf="game && redirigir">
   <button (click)="nextPage()">
     <img
       class="gameImg"
@@ -7,5 +7,16 @@
     />
   </button>
 
+  <h2 class="gameTitle">{{ game.title }}</h2>
+</section>
+
+<section *ngIf="game && !redirigir">
+  <button (click)="otherPage()">
+    <img
+      class="gameImg"
+      src="{{ game.image }}"
+      alt="Foto del juego {{ game.title }}"
+    />
+  </button>
   <h2 class="gameTitle">{{ game.title }}</h2>
 </section>
