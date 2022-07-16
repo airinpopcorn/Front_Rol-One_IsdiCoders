@@ -15,11 +15,11 @@ export class GameComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  nextPage() {
+  detailPage() {
     this.router.navigate(['detail/' + this.game._id]);
   }
 
-  otherPage() {
+  charPage() {
     this.router.navigate(['character-in-game']);
   }
 }

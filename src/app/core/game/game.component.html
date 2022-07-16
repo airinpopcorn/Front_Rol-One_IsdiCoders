@@ -1,17 +1,5 @@
-<section *ngIf="game && redirigir">
-  <button (click)="nextPage()">
-    <img
-      class="gameImg"
-      src="{{ game.image }}"
-      alt="Foto del juego {{ game.title }}"
-    />
-  </button>
-
-  <h2 class="gameTitle">{{ game.title }}</h2>
-</section>
-
-<section *ngIf="game && !redirigir">
-  <button (click)="otherPage()">
+<ng-container *ngIf="redirigir; else characterPage">
+  <button (click)="detailPage()">
     <img
       class="gameImg"
       src="{{ game.image }}"
@@ -19,4 +7,14 @@
     />
   </button>
   <h2 class="gameTitle">{{ game.title }}</h2>
-</section>
+</ng-container>
+<ng-template #characterPage>
+  <button (click)="charPage()">
+    <img
+      class="gameImg"
+      src="{{ game.image }}"
+      alt="Foto del juego {{ game.title }}"
+    />
+  </button>
+  <h2 class="gameTitle">{{ game.title }}</h2>
+</ng-template>
