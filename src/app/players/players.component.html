@@ -1,1 +1,5 @@
-<p>Players works!</p>
+<ul *ngIf="gamesPlayers">
+  <li *ngFor="let game of gamesPlayers">
+    <app-game [redirigir]="false" [game]="game"></app-game>
+  </li>
+</ul>
