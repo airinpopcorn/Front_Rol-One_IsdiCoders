@@ -18,6 +18,7 @@ export const MENU_OPTIONS: Array<iMenuOptions> = [
   { path: 'char-detail/:id', label: 'Character-detail' },
   { path: 'login', label: 'Login' },
   { path: 'create-character/:id', label: 'Create-Character' },
+  { path: 'char-in-game', label: 'Character-in-game' },
 ];
 
 @Component({
@@ -44,9 +45,10 @@ export class AppComponent implements OnInit {
       .subscribe((data) =>
         this.store.dispatch(gameActions.loadGame({ games: data }))
       );
-
-    this.apiUser.loginUser(undefined, this.token).subscribe((data) => {
-      this.store.dispatch(loadUser(data));
-    });
+    if (this.token) {
+      this.apiUser.loginUser(undefined, this.token).subscribe((data) => {
+        this.store.dispatch(loadUser(data));
+      });
+    }
   }
 }

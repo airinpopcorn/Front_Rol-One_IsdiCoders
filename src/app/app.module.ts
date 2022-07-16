@@ -9,7 +9,7 @@ import { EditProfileComponent } from './profile/edit-profile/edit-profile.compon
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [AppComponent, EditProfileComponent],

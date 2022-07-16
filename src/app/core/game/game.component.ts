@@ -8,12 +8,17 @@ import { Router } from '@angular/router';
 })
 export class GameComponent implements OnInit {
   @Input() game!: iGameModel;
+  @Input() redirigir!: boolean;
 
   constructor(public router: Router) {}
 
   ngOnInit(): void {}
 
-  nextPage() {
+  detailPage() {
     this.router.navigate(['detail/' + this.game._id]);
+  }
+
+  charPage() {
+    this.router.navigate(['char-in-game']);
   }
 }

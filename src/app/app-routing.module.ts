@@ -47,6 +47,13 @@ const routes: Routes = [
         (m) => m.CreateCharModule
       ),
   },
+  {
+    path: MENU_OPTIONS[8].path,
+    loadChildren: () =>
+      import('./character-in-game/character-in-game.module').then(
+        (m) => m.CharacterInGameModule
+      ),
+  },
 ];
 
 @NgModule({
