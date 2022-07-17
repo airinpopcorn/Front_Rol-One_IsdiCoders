@@ -38,8 +38,8 @@ export class PlayersComponent implements OnInit {
         },
       });
 
-    this.characters?.forEach((character) => {
-      return this.arrGames.push(character.idGame as string);
+    this.characters?.forEach(({ idGame }) => {
+      return this.arrGames.push(idGame as string);
     });
     this.arrGames = this.clearDuplicates(this.arrGames);
     this.store
