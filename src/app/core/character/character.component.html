@@ -1,10 +1,7 @@
 <div>
-  <button (click)="nextPage()">
-    <img
-      src="https://i.pinimg.com/originals/49/82/ee/4982ee72bddbcb7fee8404d3cdc6c011.jpg"
-      alt=""
-    />
+  <button (click)="detailCharPage()">
+    <img src="{{ character.image }}" alt="" />
   </button>
-  <h3>Nombre: Héckate Lacroix</h3>
-  <h5>Jugador: Edu Aragón</h5>
+  <h3>Nombre: {{ character.name }}</h3>
+  <h5>Jugador: {{ character.player?.name }}</h5>
 </div>
