@@ -19,6 +19,6 @@ export class GameComponent implements OnInit {
   }
 
   charPage() {
-    this.router.navigate(['char-in-game']);
+    this.router.navigate(['char-in-game/' + this.game._id]);
   }
 }
