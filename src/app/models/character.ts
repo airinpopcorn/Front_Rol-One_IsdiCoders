@@ -4,8 +4,9 @@ export interface iCharacterState {
 
 export interface iCharacter {
   _id?: string;
-  player?: string;
+  player?: iCharacter;
   idGame?: string;
+  image?: string;
   name: string;
   life: string;
   strength: string;
