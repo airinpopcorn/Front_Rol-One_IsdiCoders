@@ -1,1 +1,21 @@
-<p>edit-char works!</p>
+<div *ngIf="character">
+  <img
+    class="CharImg"
+    src="{{ character?.image }}"
+    alt="Foto del personaje {{ character.name }}"
+  />
+  <form [formGroup]="characterForm">
+    <div *ngFor="let control of fbGroupData | keyvalue">
+      <label class="capitalize" for="">{{ control.key }}</label>
+      <input
+        class="editChar__input capitalize"
+        type="text"
+        name="{{ control.key }}"
+        placeholder="{{ control.value }}"
+        [formControlName]="control.key"
+      />
+    </div>
+
+    <button>EDIT</button>
+  </form>
+</div>
