@@ -19,6 +19,12 @@ import { ListGameComponent } from './list-game/list-game.component';
     ListGameComponent,
   ],
   imports: [CommonModule, RouterModule, CoreRoutingModule],
-  exports: [HeaderComponent, MenuComponent, GameComponent, ListGameComponent],
+  exports: [
+    HeaderComponent,
+    MenuComponent,
+    GameComponent,
+    ListGameComponent,
+    CharacterComponent,
+  ],
 })
 export class CoreModule {}

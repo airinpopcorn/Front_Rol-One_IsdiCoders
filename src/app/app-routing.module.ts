@@ -54,6 +54,13 @@ const routes: Routes = [
         (m) => m.CharacterInGameModule
       ),
   },
+  {
+    path: MENU_OPTIONS[9].path,
+    loadChildren: () =>
+      import('./forms/edit-char/edit-char.module').then(
+        (m) => m.EditCharModule
+      ),
+  },
 ];
 
 @NgModule({

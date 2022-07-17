@@ -1,1 +1,26 @@
-<p>character-detail works!</p>
+<div>
+  <div>
+    <img
+      class="CharImg"
+      src="{{ character.image }}"
+      alt="Foto del personaje {{ character.name }}"
+    />
+    <h2>{{ character.name }}</h2>
+  </div>
+  <button (click)="handleUpdate()">Update</button>
+  <button (click)="handleDelete()">Delete</button>
+  <div *ngFor="let property of character | keyvalue">
+    <p
+      class="capitalize"
+      *ngIf="
+        property.key !== 'image' &&
+        property.key !== 'idGame' &&
+        property.key !== '_id' &&
+        property.key !== 'player' &&
+        property.key !== 'name'
+      "
+    >
+      {{ property.key }}= {{ property.value }}
+    </p>
+  </div>
+</div>

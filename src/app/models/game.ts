@@ -1,3 +1,5 @@
+import { iCharacter } from './character';
+
 export interface iGameState {
   games: Array<iGameModel>;
 }
@@ -8,7 +10,7 @@ export interface iGameModel {
   creator: string;
   description: string;
   image: string;
-  characters: Array<string>;
+  characters: Array<iCharacter>;
   template: { [key: string]: string };
 }
 
@@ -18,7 +20,7 @@ export class GameModel implements iGameModel {
     public creator: string,
     public description: string,
     public image: string,
-    public characters: Array<string>,
+    public characters: Array<iCharacter>,
     public template: { [key: string]: string }
   ) {}
 }

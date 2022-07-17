@@ -4,8 +4,9 @@ export interface iCharacterState {
 
 export interface iCharacter {
   _id?: string;
-  player?: string;
+  player?: iCharacter;
   idGame?: string;
+  image?: string;
   name: string;
   life: string;
   strength: string;
@@ -26,12 +27,6 @@ export interface iCharacter {
   shield?: string;
   effort?: string;
   injury?: string;
-  abilities?: [
-    {
-      name: string;
-      value: string;
-    }
-  ];
   charisma?: string;
   manipulation?: string;
   appearence?: string;
