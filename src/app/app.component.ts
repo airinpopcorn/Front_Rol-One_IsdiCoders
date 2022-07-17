@@ -19,6 +19,7 @@ export const MENU_OPTIONS: Array<iMenuOptions> = [
   { path: 'login', label: 'Login' },
   { path: 'create-character/:id', label: 'Create-Character' },
   { path: 'char-in-game/:id', label: 'Character-in-game' },
+  { path: 'edit-character/:id', label: 'Edit-character' },
 ];
 
 @Component({
