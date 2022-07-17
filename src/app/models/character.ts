@@ -27,12 +27,6 @@ export interface iCharacter {
   shield?: string;
   effort?: string;
   injury?: string;
-  abilities?: [
-    {
-      name: string;
-      value: string;
-    }
-  ];
   charisma?: string;
   manipulation?: string;
   appearence?: string;
