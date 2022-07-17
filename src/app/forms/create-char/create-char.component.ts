@@ -8,6 +8,7 @@ import {
 } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
+import { iCharacter } from 'src/app/models/character';
 import { iGameState } from 'src/app/models/game';
 import { ApiCharacter } from 'src/app/services/characters.api';
 import { ApiGame } from 'src/app/services/game.api';
@@ -27,7 +28,7 @@ export class CreateCharComponent implements OnInit {
     creator: string;
     description: string;
     image: string;
-    characters: Array<string>;
+    characters: Array<iCharacter>;
     template: { [key: string]: string };
   };
   fbGroupData: {

@@ -13,7 +13,7 @@ export class CharacterComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  nextPage() {
-    this.router.navigate(['char-detail/1234']);
+  detailCharPage() {
+    this.router.navigate(['char-detail/' + this.character._id]);
   }
 }

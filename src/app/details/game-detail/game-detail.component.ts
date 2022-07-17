@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
+import { iCharacter } from 'src/app/models/character';
 import { iGameState } from 'src/app/models/game';
 import { ApiGame } from 'src/app/services/game.api';
 import { AppState } from 'src/app/state/app.state';
@@ -18,7 +19,7 @@ export class GameDetailComponent implements OnInit {
     creator: string;
     description: string;
     image: string;
-    characters: Array<string>;
+    characters: Array<iCharacter>;
     template: Object;
   };
   token!: string;
