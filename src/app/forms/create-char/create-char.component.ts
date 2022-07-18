@@ -10,9 +10,11 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { iCharacter } from 'src/app/models/character';
 import { iGameState } from 'src/app/models/game';
+import { iUser } from 'src/app/models/user';
 import { ApiCharacter } from 'src/app/services/characters.api';
 import { ApiGame } from 'src/app/services/game.api';
 import { AppState } from 'src/app/state/app.state';
+import { loadUser } from 'src/app/state/user.reducer/user.action.creator';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -40,6 +42,7 @@ export class CreateCharComponent implements OnInit {
   characterForm!: FormGroup;
   idGame!: string;
   idUser!: string;
+  user!: iUser;
   constructor(
     public route: ActivatedRoute,
     public fb: FormBuilder,
@@ -55,6 +58,7 @@ export class CreateCharComponent implements OnInit {
       .select((state) => state.users)
       .subscribe({
         next: (data) => {
+          this.user = data.user;
           this.idUser = data.user._id as string;
           this.token = data.token;
         },
@@ -79,6 +83,11 @@ export class CreateCharComponent implements OnInit {
       .addCharacter(this.characterForm.value, this.token)
       .subscribe({
         next: (data) => {
+          let newCharacterArr = this.user.characters;
+
+          newCharacterArr = [...(newCharacterArr as Array<iCharacter>), data];
+          const newUser = { ...this.user, characters: newCharacterArr };
+          this.store.dispatch(loadUser({ user: newUser, token: this.token }));
           Swal.fire({
             icon: 'success',
             title: 'Yuhuuu...',
