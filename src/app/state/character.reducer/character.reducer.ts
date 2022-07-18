@@ -1,3 +1,4 @@
+/* istanbul ignore file */
 import { createReducer, on } from '@ngrx/store';
 import { iCharacter } from 'src/app/models/character';
 import * as ac from './character.actions.creators';
