@@ -15,6 +15,14 @@ describe('CharacterComponent', () => {
 
     fixture = TestBed.createComponent(CharacterComponent);
     component = fixture.componentInstance;
+    component.character = {
+      name: '',
+      life: '',
+      strength: '',
+      intelligence: '',
+      constitution: '',
+      image: '',
+    };
     fixture.detectChanges();
   });
 
@@ -25,7 +33,7 @@ describe('CharacterComponent', () => {
     it('Should navigate to character detail page', () => {
       spyOn(component.router, 'navigate');
       fixture.detectChanges();
-      component.nextPage();
+      component.detailCharPage();
       expect(component.router.navigate).toHaveBeenCalled();
     });
   });
