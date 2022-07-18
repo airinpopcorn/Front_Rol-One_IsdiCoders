@@ -13,13 +13,26 @@ import Swal from 'sweetalert2';
 import { CreateCharComponent } from './create-char.component';
 
 describe('CreateCharComponent', () => {
+  const mockCharacter: iCharacter = {
+    name: 'testName',
+    life: 'testLife',
+    strength: 'testStrength',
+    intelligence: 'testIntelligence',
+    constitution: 'testConstitution',
+  };
   const mockGame = {
     title: '',
     creator: '',
     description: '',
     image: '',
     characters: [],
-    template: { name: '', intelligence: '' },
+    template: {
+      name: '',
+      life: '',
+      strength: '',
+      intelligence: '',
+      constitution: '',
+    },
   };
   let component: CreateCharComponent;
   let fixture: ComponentFixture<CreateCharComponent>;
@@ -74,18 +87,19 @@ describe('CreateCharComponent', () => {
     it('Should be called apiCharacter.addCharacter and throw a success alert', () => {
       const fixture = TestBed.createComponent(CreateCharComponent);
       const component = fixture.componentInstance;
-      const mockCharacter = {
+      component.characterForm.setValue({
         name: 'testName',
-        intelligence: '4',
-        idGame: '123',
-        player: '3333',
-      };
-      component.characterForm = mockCharacter as unknown as FormGroup;
-      component.characterForm;
-      spyOn(component.apiCharacter, 'addCharacter');
-      // component.characterForm.controls['idGame'].setValue('1234');
-      // component.characterForm.controls['player'].setValue('222');
-      component.characterForm.valid;
+        life: 'testLife',
+        strength: 'testStrenght',
+        intelligence: 'testIntelligence',
+        constitution: 'testConstitution',
+      });
+      expect(component.characterForm.valid).toEqual(true);
+
+      spyOn(component.apiCharacter, 'addCharacter').and.returnValue(
+        of(mockCharacter)
+      );
+
       spyOn(Swal, 'fire');
       fixture.detectChanges();
       component.handleSubmit();
