@@ -5,6 +5,7 @@ import { ActivatedRoute, convertToParamMap } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 import { provideMockStore } from '@ngrx/store/testing';
 import { of } from 'rxjs';
+import { iCharacter } from 'src/app/models/character';
 import { ApiGame } from 'src/app/services/game.api';
 import { initialState } from 'src/app/state/character.reducer/character.reducer';
 import Swal from 'sweetalert2';
@@ -57,24 +58,34 @@ describe('CreateCharComponent', () => {
   });
   describe('When loading create character page', () => {
     it('Should called apiGame.getOneGame', () => {
+      const fixture = TestBed.createComponent(CreateCharComponent);
+      const component = fixture.componentInstance;
       spyOn(component.store, 'select').and.returnValue(
         of({ user: {}, token: 'token' })
       );
       component.token = 'token';
       component.idGame = '1';
       spyOn(component.apiGame, 'getOneGame').and.returnValue(of(mockGame));
-      spyOn(component.fb, 'group').and.returnValue({} as FormGroup);
-
-      expect(component.characterForm).toBeTruthy();
+      fixture.detectChanges();
+      expect(component.apiGame.getOneGame).toHaveBeenCalled();
     });
   });
   describe('When calling handleSubmit method with correct form values', () => {
     it('Should be called apiCharacter.addCharacter and throw a success alert', () => {
-      component.characterForm.controls['name'].setValue('testName');
-      component.characterForm.controls['intelligence'].setValue('4');
-      fixture.detectChanges();
-      component.characterForm.valid;
+      const fixture = TestBed.createComponent(CreateCharComponent);
+      const component = fixture.componentInstance;
+      const mockCharacter = {
+        name: 'testName',
+        intelligence: '4',
+        idGame: '123',
+        player: '3333',
+      };
+      component.characterForm = mockCharacter as unknown as FormGroup;
+      component.characterForm;
       spyOn(component.apiCharacter, 'addCharacter');
+      // component.characterForm.controls['idGame'].setValue('1234');
+      // component.characterForm.controls['player'].setValue('222');
+      component.characterForm.valid;
       spyOn(Swal, 'fire');
       fixture.detectChanges();
       component.handleSubmit();
