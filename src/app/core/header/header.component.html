@@ -1,6 +1,26 @@
-<section>
-  <img class="logoImg" src="../../../assets/Rol.svg" alt="Logo Rol-One" />
+<div *ngIf="token; else notLogin">
+  <img
+    (click)="goHome()"
+    role="button"
+    class="logoImg"
+    src="../../../assets/Rol.svg"
+    alt="Logo Rol-One"
+  />
   <i
-    ><img class="logout" src="../../../assets/logout.svg" alt="logout icon"
+    ><img
+      role="button"
+      (click)="logout()"
+      class="logout"
+      src="../../../assets/logout.svg"
+      alt="logout icon"
   /></i>
-</section>
+</div>
+<ng-template #notLogin>
+  <img
+    (click)="goHome()"
+    role="button"
+    class="logoImg"
+    src="../../../assets/Rol.svg"
+    alt="Logo Rol-One"
+  />
+</ng-template>

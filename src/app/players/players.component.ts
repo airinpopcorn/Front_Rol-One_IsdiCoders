@@ -17,8 +17,7 @@ export class PlayersComponent implements OnInit {
   arrGames: Array<string> = [];
   gamesWithCharacters!: Array<iGameModel>;
   gamesPlayers: Array<iGameModel> = [];
-  token!: string;
-  idUser!: string;
+
   constructor(
     public store: Store<AppState>,
     public localStorage: LocalStorageService,
