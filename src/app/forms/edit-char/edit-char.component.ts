@@ -40,6 +40,7 @@ export class EditCharComponent implements OnInit {
           this.fbGroupData[entry[0]] = ['', [Validators.required]];
         });
         this.characterForm = this.fb.group(this.fbGroupData);
+        this.characterForm.setValue(this.character);
       },
     });
   }

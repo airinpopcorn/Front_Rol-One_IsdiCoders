@@ -49,6 +49,28 @@ export class CreateCharComponent implements OnInit {
     public apiCharacter: ApiCharacter
   ) {}
 
+  ngOnInit(): void {
+    this.idGame = this.route.snapshot.paramMap.get('id') as string;
+    this.store
+      .select((state) => state.users)
+      .subscribe({
+        next: (data) => {
+          this.idUser = data.user._id as string;
+          this.token = data.token;
+        },
+      });
+    this.apiGame.getOneGame(this.idGame).subscribe({
+      next: (data) => {
+        this.filterGame = data;
+
+        Object.entries(this.filterGame.template).forEach((entry) => {
+          this.fbGroupData[entry[0]] = ['', [Validators.required]];
+        });
+        this.characterForm = this.fb.group(this.fbGroupData);
+      },
+    });
+  }
+
   handleSubmit() {
     this.characterForm.valid;
     this.characterForm.value.idGame = this.idGame;
@@ -72,27 +94,5 @@ export class CreateCharComponent implements OnInit {
         },
       });
     this.characterForm.reset();
-  }
-
-  ngOnInit(): void {
-    this.idGame = this.route.snapshot.paramMap.get('id') as string;
-    this.store
-      .select((state) => state.users)
-      .subscribe({
-        next: (data) => {
-          this.idUser = data.user._id as string;
-          this.token = data.token;
-        },
-      });
-    this.apiGame.getOneGame(this.idGame).subscribe({
-      next: (data) => {
-        this.filterGame = data;
-
-        Object.entries(this.filterGame.template).forEach((entry) => {
-          this.fbGroupData[entry[0]] = ['', [Validators.required]];
-        });
-        this.characterForm = this.fb.group(this.fbGroupData);
-      },
-    });
   }
 }

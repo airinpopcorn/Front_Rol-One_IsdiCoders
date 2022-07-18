@@ -6,13 +6,32 @@
   />
   <form [formGroup]="characterForm">
     <div *ngFor="let control of fbGroupData | keyvalue">
-      <label class="capitalize" for="">{{ control.key }}</label>
+      <label
+        *ngIf="
+          control.key !== 'image' &&
+          control.key !== 'idGame' &&
+          control.key !== '_id' &&
+          control.key !== 'player' &&
+          control.key !== 'name'
+        "
+        class="capitalize"
+        for=""
+        >{{ control.key }}</label
+      >
       <input
+        *ngIf="
+          control.key !== 'image' &&
+          control.key !== 'idGame' &&
+          control.key !== '_id' &&
+          control.key !== 'player' &&
+          control.key !== 'name'
+        "
         class="editChar__input capitalize"
         type="text"
         name="{{ control.key }}"
-        placeholder="{{ control.value }}"
+        placeholder="{{ characterForm.get(control.key)?.value }}"
         [formControlName]="control.key"
+        [value]="characterForm.get(control.key)?.value"
       />
     </div>
 
