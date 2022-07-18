@@ -30,11 +30,19 @@ describe('GameComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-  describe('When calling nextPage method', () => {
+  describe('When calling detailPage method', () => {
     it('Should be navigate to detail page', () => {
       spyOn(component.router, 'navigate');
       fixture.detectChanges();
-      component.nextPage();
+      component.detailPage();
+      expect(component.router.navigate).toHaveBeenCalled();
+    });
+  });
+  describe('When calling charPage method', () => {
+    it('Should be navigate to detail page', () => {
+      spyOn(component.router, 'navigate');
+      fixture.detectChanges();
+      component.charPage();
       expect(component.router.navigate).toHaveBeenCalled();
     });
   });
