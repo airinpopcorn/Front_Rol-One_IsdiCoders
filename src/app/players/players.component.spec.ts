@@ -62,7 +62,4 @@ describe('PlayersComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-  describe('When players page is loaded', () => {
-    it('Should be called users and games state', () => {});
-  });
 });

@@ -12,11 +12,19 @@ describe('Given LocalStorageService', () => {
     expect(service).toBeTruthy();
   });
   describe('When calling service.getToken', () => {
-    it('Should be called localStorage.getItem', () => {
+    it('Should be called localStorage.getItem if token exists', () => {
       spyOn(localStorage, 'getItem').and.returnValue(JSON.stringify('token'));
 
       service.getToken();
       expect(localStorage.getItem).toHaveBeenCalled;
+    });
+  });
+  describe('When calling service.getToken', () => {
+    it('Should be called localStorage.getItem if token don`t exists', () => {
+      spyOn(localStorage, 'getItem').and.returnValue(null);
+
+      service.getToken();
+      expect(localStorage.getItem).toHaveBeenCalled();
     });
   });
   describe('When calling service.saveToken', () => {

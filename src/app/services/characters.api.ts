@@ -47,9 +47,17 @@ export class ApiCharacter {
   }
 
   updateCharacter(character: iCharacter): Observable<iCharacter> {
+    const httpOptions = {
+      method: 'PATCH',
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${this.token}`,
+      }),
+    };
     return this.http.patch(
       this.apiUrl + character._id,
-      character
+      character,
+      httpOptions
     ) as Observable<iCharacter>;
   }
 

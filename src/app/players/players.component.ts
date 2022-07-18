@@ -5,6 +5,7 @@ import { iGameModel, iGameState } from '../models/game';
 import { LocalStorageService } from '../services/localStorage.service';
 import { ApiUser } from '../services/user.api';
 import { AppState } from '../state/app.state';
+import { loadGame } from '../state/game.reducer/game.action.creators';
 
 @Component({
   selector: 'app-players',
