@@ -11,6 +11,14 @@ import { GameDetailComponent } from './game-detail.component';
 import Swal from 'sweetalert2';
 
 describe('GameDetailComponent', () => {
+  const mockGame: iGameModel = {
+    title: '',
+    creator: '',
+    description: '',
+    image: '',
+    characters: [],
+    template: {},
+  };
   let mockInitialState = {
     users: {
       user: {
@@ -74,19 +82,29 @@ describe('GameDetailComponent', () => {
 
     fixture = TestBed.createComponent(GameDetailComponent);
     component = fixture.componentInstance;
+    component.filterGame = {
+      title: '',
+      creator: '',
+      description: '',
+      image: '',
+      characters: [],
+      template: {},
+    };
     fixture.detectChanges();
   });
 
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-  // describe('When loaded gameComponent', () => {
-  //   it('Should called apiGame.getOneGame', () => {
-  //     spyOn(component.apiGame, 'getOneGame');
-  //     fixture.detectChanges();
-  //     expect(component.apiGame.getOneGame).toHaveBeenCalled();
-  //   });
-  // });
+  describe('When loaded gameComponent', () => {
+    it('Should called apiGame.getOneGame', () => {
+      const fixture = TestBed.createComponent(GameDetailComponent);
+      const component = fixture.componentInstance;
+      spyOn(component.apiGame, 'getOneGame').and.returnValue(of(mockGame));
+      fixture.detectChanges();
+      expect(component.apiGame.getOneGame).toHaveBeenCalled();
+    });
+  });
   describe('When goCreateCharacter method is called', () => {
     it('Should navigate to create-character page if token exists', () => {
       component.token = 'token';
