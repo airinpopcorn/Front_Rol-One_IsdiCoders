@@ -53,7 +53,7 @@ describe('AppComponent', () => {
 
       fixture.detectChanges();
 
-      expect(component.store.dispatch).toHaveBeenCalledTimes(2);
+      expect(component.store.dispatch).toHaveBeenCalled();
     });
   });
 });
