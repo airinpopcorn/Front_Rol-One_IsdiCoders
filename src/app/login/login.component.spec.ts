@@ -6,6 +6,8 @@ import { provideMockStore } from '@ngrx/store/testing';
 import { of } from 'rxjs';
 import { CoreModule } from '../core/core.module';
 import { iUser } from '../models/user';
+import { LocalStorageService } from '../services/localStorage.service';
+import { ApiUser } from '../services/user.api';
 import { LoginFormComponent } from './login-form/login-form.component';
 
 import { LoginComponent } from './login.component';
@@ -44,7 +46,11 @@ describe('LoginComponent', () => {
         CoreModule,
       ],
       declarations: [LoginComponent, LoginFormComponent, RegisterFormComponent],
-      providers: [provideMockStore({ initialState })],
+      providers: [
+        provideMockStore({ initialState }),
+        LocalStorageService,
+        ApiUser,
+      ],
     }).compileComponents();
 
     fixture = TestBed.createComponent(LoginComponent);
@@ -58,6 +64,8 @@ describe('LoginComponent', () => {
 
   describe('When login page is loaded', () => {
     it('should be call store.dispatch, saveToken and navigate', () => {
+      const fixture = TestBed.createComponent(LoginComponent);
+      const component = fixture.componentInstance;
       spyOn(component.localStorage, 'getToken').and.returnValue('token');
       spyOn(component.apiUser, 'loginUser').and.returnValue(
         of({ user: {} as iUser, token: 'token' })

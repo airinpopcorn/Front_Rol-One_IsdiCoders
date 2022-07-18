@@ -23,6 +23,8 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.token = this.localStorage.getToken() as string;
+    console.log(this.token);
+
     if (this.token) {
       this.apiUser.loginUser(undefined, this.token).subscribe({
         next: (data) => {
