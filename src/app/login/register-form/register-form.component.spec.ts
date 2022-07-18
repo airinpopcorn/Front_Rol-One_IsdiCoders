@@ -47,7 +47,7 @@ describe('RegisterFormComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-  describe('When calling handleClick method with correct data', () => {
+  describe('When calling handleSubmit method with correct data', () => {
     it('Should be called apiUser.addUser', () => {
       component.dataUser = {
         name: '',
@@ -60,11 +60,11 @@ describe('RegisterFormComponent', () => {
       );
       spyOn(component.route, 'navigate');
       fixture.detectChanges();
-      component.handleClick();
+      component.handleSubmit();
       expect(component.apiUser.addUser).toHaveBeenCalled();
     });
   });
-  describe('When calling handleClick method with incorrect data', () => {
+  describe('When calling handleSubmit method with incorrect data', () => {
     it('Should be called apiUser.addUser and throw and error', () => {
       spyOn(component.apiUser, 'addUser').and.returnValue(
         new Observable(() => {
@@ -73,7 +73,7 @@ describe('RegisterFormComponent', () => {
       );
       spyOn(Swal, 'fire');
       fixture.detectChanges();
-      component.handleClick();
+      component.handleSubmit();
       expect(Swal.fire).toHaveBeenCalled();
     });
   });
