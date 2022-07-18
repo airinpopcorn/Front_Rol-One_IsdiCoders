@@ -1,4 +1,4 @@
-<form class="register">
+<form class="register" (submit)="handleSubmit()">
   <input
     name="name"
     class="register__input"
@@ -9,9 +9,10 @@
   <input
     name="email"
     class="register__input"
-    type="text"
+    type="email"
     placeholder="email"
     [(ngModel)]="dataUser.email"
+    required
   />
   <input
     name="password"
@@ -19,6 +20,7 @@
     type="password"
     placeholder="password"
     [(ngModel)]="dataUser.password"
+    required
   />
-  <button class="register__submit" (click)="handleClick()">Registrar</button>
+  <button type="submit" class="register__submit">Registrar</button>
 </form>

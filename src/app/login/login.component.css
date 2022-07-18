@@ -6,6 +6,13 @@ div {
   margin: auto;
   width: 60vw;
 }
+
+p {
+  margin-top: 1.5rem;
+  width: 90vw;
+}
+
 .link {
+  font-weight: 600;
   cursor: pointer;
 }

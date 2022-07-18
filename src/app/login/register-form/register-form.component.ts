@@ -20,7 +20,7 @@ export class RegisterFormComponent implements OnInit {
   ngOnInit(): void {
     this.dataUser = { name: '', email: '', password: '', role: 'master' };
   }
-  handleClick() {
+  handleSubmit() {
     this.apiUser.addUser(this.dataUser).subscribe({
       next: (data) => {
         Swal.fire({
