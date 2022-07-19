@@ -1,0 +1,27 @@
+div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.picture {
+  width: 35rem;
+}
+img {
+  object-fit: contain;
+}
+label {
+  margin-bottom: 0.5rem;
+  margin-top: 0.5;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+input {
+  text-align: center;
+}
+
+button {
+  margin-top: 1rem;
+}

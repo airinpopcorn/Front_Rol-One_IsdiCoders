@@ -1,30 +1,27 @@
-<div class="wrapper" *ngIf="character">
-  <div class="clash-card l5a">
-    <div class="clash-card__image clash-card__image--l5a">
-      <img src="{{ character.image }}" alt="l5a" />
-    </div>
-    <div class="clash-card__unit-name">{{ character.name }}</div>
-    <div class="buttons">
-      <button (click)="handleUpdate()">Update</button>
-      <button (click)="handleDelete()">Delete</button>
-    </div>
+<div class="clash-card l5a" *ngIf="character">
+  <div class="clash-card__image clash-card__image--l5a">
+    <img src="{{ character.image }}" alt="l5a" />
+  </div>
+  <div class="clash-card__unit-name">{{ character.name }}</div>
+  <div class="buttons">
+    <button (click)="handleUpdate()">Update</button>
+    <button (click)="handleDelete()">Delete</button>
+  </div>
 
-    <div class="clash-card__unit-stats clash-card__unit-stats--l5a clearfix">
-      <div *ngFor="let property of character | keyvalue" class="one-third">
-        <div
-          class="capitalize"
-          *ngIf="
-            property.key !== 'image' &&
-            property.key !== 'idGame' &&
-            property.key !== '_id' &&
-            property.key !== 'player' &&
-            property.key !== 'name'
-          "
-        >
-          <span>{{ property.key }}:</span> <span>{{ property.value }}</span>
-        </div>
+  <div class="clash-card__unit-stats clash-card__unit-stats--l5a clearfix">
+    <div *ngFor="let property of character | keyvalue" class="one-third">
+      <div
+        class="capitalize"
+        *ngIf="
+          property.key !== 'image' &&
+          property.key !== 'idGame' &&
+          property.key !== '_id' &&
+          property.key !== 'player' &&
+          property.key !== 'name'
+        "
+      >
+        <span>{{ property.key }}: </span> <span>{{ property.value }}</span>
       </div>
     </div>
   </div>
-  <!-- end clash-card l5a-->
 </div>
