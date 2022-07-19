@@ -47,7 +47,10 @@ describe('AppComponent', () => {
       const component = fixture.componentInstance;
       spyOn(component.game, 'getGames').and.returnValue(of([]));
       spyOn(component.apiUser, 'loginUser').and.returnValue(
-        of({ user: { name: '', email: '', password: '', role: '' }, token: '' })
+        of({
+          user: { name: '', email: '', password: '', role: '' },
+          token: 'token',
+        })
       );
       spyOn(component.store, 'dispatch');
 

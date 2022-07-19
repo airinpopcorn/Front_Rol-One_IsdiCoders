@@ -1,1 +1,17 @@
-<p>user works!</p>
+<div class="cards" *ngIf="user">
+  <div class="user-card-item">
+    <div class="user-card">
+      <div class="user-card-pb card__image--fence"></div>
+      <div class="user-card-img"></div>
+      <div class="user-card-cont">
+        <div class="user-card-title">{{ user.name }}</div>
+        <p class="user-id">{{ user.role }}</p>
+        <p class="user-card-text">{{ user.email }}</p>
+      </div>
+      <div class="btn-row">
+        <button>EDIT<i class="fas fa-edit edit-btn"></i></button>
+        <button><i class="fas fa-trash-alt edit-btn red">DELETE</i></button>
+      </div>
+    </div>
+  </div>
+</div>
