@@ -14,7 +14,7 @@ jobs:
       - name: Install modules
         run: npm ci
       - name: Testing coverage
-        run: npm test --code-coverage
+        run: ng test --code-coverage --watch=false --browsers=ChromeHeadless
         env:
           JWT_SECRET: ${{ secrets.JWT_SECRET }}
       - name: SonarCloud Scan
