@@ -8,5 +8,6 @@ import { UserComponent } from './user/user.component';
 @NgModule({
   declarations: [ProfileComponent, UserComponent],
   imports: [CommonModule, ProfileRoutingModule],
+  exports: [ProfileComponent],
 })
 export class ProfileModule {}
