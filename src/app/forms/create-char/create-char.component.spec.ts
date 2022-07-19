@@ -6,7 +6,6 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { provideMockStore } from '@ngrx/store/testing';
 import { of } from 'rxjs';
 import { iCharacter } from 'src/app/models/character';
-import { ApiGame } from 'src/app/services/game.api';
 import { initialState } from 'src/app/state/character.reducer/character.reducer';
 import Swal from 'sweetalert2';
 
