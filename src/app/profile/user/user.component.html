@@ -1,5 +1,5 @@
-<div class="cards" *ngIf="user">
-  <div class="user-card-item">
+<div class="card-container">
+  <div class="user-card-item" *ngIf="user">
     <div class="user-card">
       <div class="user-card-pb card__image--fence"></div>
       <div class="user-card-img"></div>
@@ -9,8 +9,8 @@
         <p class="user-card-text">{{ user.email }}</p>
       </div>
       <div class="btn-row">
-        <button>EDIT<i class="fas fa-edit edit-btn"></i></button>
-        <button><i class="fas fa-trash-alt edit-btn red">DELETE</i></button>
+        <button>EDIT</button>
+        <button>DELETE</button>
       </div>
     </div>
   </div>

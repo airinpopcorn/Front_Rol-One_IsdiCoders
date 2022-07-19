@@ -1,6 +1,7 @@
+@import url("https://fonts.googleapis.com/css2?family=Goblin+One&family=Macondo&display=swap");
 body {
   color: #999999;
-  font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Macondo", cursive;
   font-style: normal;
   font-weight: 400;
   letter-spacing: 0;
@@ -11,43 +12,18 @@ img {
   max-width: 100%;
   vertical-align: middle;
 }
-.btn {
-  background-color: white;
-  border: 1px solid #cccccc;
-  color: #696969;
-  padding: 0.5rem;
-  text-transform: lowercase;
-}
-.btn--block {
-  display: block;
-  width: 100%;
-}
-.cards {
-  display: flex;
-  flex-wrap: wrap;
-  list-style: none;
+.card-container {
   margin: 0;
   padding: 0;
 }
+
 .user-card-item {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  flex-grow: 1;
-  flex-basis: 200px;
+  margin-top: 2rem;
+  margin-left: 5rem;
   max-width: 350px;
   padding: 1rem;
 }
-@media (min-width: 40rem) {
-  .cards__item {
-    width: 50%;
-  }
-}
-@media (min-width: 56rem) {
-  .cards__item {
-    width: 33.3333%;
-  }
-}
+
 .user-card {
   background-color: white;
   border-radius: 0.9rem;
@@ -78,6 +54,7 @@ img {
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
+
   border: 4px solid white;
   width: 140px;
   height: 140px;
@@ -89,27 +66,34 @@ img {
   position: absolute;
 }
 
-.card__image--fence {
-  background-image: url(https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg);
-}
 .user-card-title {
   text-align: center;
   color: #696969;
+  font-family: "Macondo", cursive;
   font-size: 1.65rem;
   font-weight: 300;
   letter-spacing: 3px;
   text-transform: uppercase;
   padding-top: 13px;
+  padding-bottom: 1rem;
   line-height: 14px;
+}
+.user-id {
+  font-size: 1.4rem;
+  text-align: center;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
 }
 .user-card-text {
   text-align: center;
   -webkit-box-flex: 1;
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
-  font-size: 0.875rem;
+  font-family: "Macondo", cursive;
+  font-size: 1.2rem;
   line-height: 1.5;
   margin-bottom: 1.25rem;
+  padding-top: 1rem;
 }
 
 .btn-row {
@@ -119,11 +103,11 @@ img {
 }
 .btn-row button {
   border: none;
-  background-color: #f2f2f2;
+  background-color: #231750;
   padding: 15px 0px;
   width: 100%;
-  font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  color: #696969;
+  font-family: "Macondo", cursive;
+  color: white;
   letter-spacing: 2.4px;
   transition: all 0.3s ease-in-out;
   outline: none;
@@ -134,16 +118,11 @@ img {
   color: white;
 }
 
-.user-id {
-  font-size: 0.7rem;
-  text-align: center;
-}
-
 .user-card-img {
   width: 100%;
   height: 140px;
   background-color: #78909c;
   background-position: center center;
   background-size: cover;
-  background-image: url(https://wallpapershome.com/images/pages/pic_hs/181.jpg);
+  background-image: url(https://c.wallhere.com/photos/60/9f/3840x2160_px_action_artwork_Elder_fantasy_Fighting_mmo_online-1810627.jpg!d);
 }
