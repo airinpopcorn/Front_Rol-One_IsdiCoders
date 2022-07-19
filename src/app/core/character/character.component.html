@@ -1,7 +1,38 @@
-<div>
-  <button (click)="detailCharPage()">
-    <img src="{{ character.image }}" alt="" />
-  </button>
-  <h3>Nombre: {{ character.name }}</h3>
-  <h5>Jugador: {{ character.player?.name }}</h5>
+<div class="wrapper" (click)="detailCharPage()">
+  <div class="clash-card l5a">
+    <div class="clash-card__image clash-card__image--l5a">
+      <img src="{{ character.image }}" alt="l5a" />
+    </div>
+    <div class="clash-card__lifebar">
+      <div class="clash-card__life"></div>
+      <div class="clash-card__level clash-card__level--l5a">
+        {{ character.life }}
+      </div>
+    </div>
+
+    <div class="clash-card__unit-name">{{ character.name }}</div>
+    <div class="clash-card__unit-description">
+      The Barbarian is a kilt-clad Scottish warrior with an angry, battle-ready
+      expression, hungry for destruction. He has Killer yellow horseshoe
+      mustache.
+    </div>
+
+    <div class="clash-card__unit-stats clash-card__unit-stats--l5a clearfix">
+      <div class="one-third">
+        <div class="stat">{{ character.strength }}</div>
+        <div class="stat-value">Str</div>
+      </div>
+
+      <div class="one-third">
+        <div class="stat">{{ character.intelligence }}</div>
+        <div class="stat-value">Int</div>
+      </div>
+
+      <div class="one-third no-border">
+        <div class="stat">{{ character.constitution }}</div>
+        <div class="stat-value">Const</div>
+      </div>
+    </div>
+  </div>
+  <!-- end clash-card l5a-->
 </div>

@@ -19,6 +19,7 @@ export class GameDetailComponent implements OnInit {
     creator: string;
     description: string;
     image: string;
+    img_detail?: string;
     characters: Array<iCharacter>;
     template: Object;
   };

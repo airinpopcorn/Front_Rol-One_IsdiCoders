@@ -22,5 +22,7 @@
     [(ngModel)]="dataUser.password"
     required
   />
-  <button type="submit" class="register__submit">Registrar</button>
+  <button (click)="handleSubmit()" type="submit" class="register__submit">
+    Registrar
+  </button>
 </form>

@@ -10,6 +10,7 @@ export interface iGameModel {
   creator: string;
   description: string;
   image: string;
+  img_detail?: string;
   characters: Array<iCharacter>;
   template: { [key: string]: string };
 }
