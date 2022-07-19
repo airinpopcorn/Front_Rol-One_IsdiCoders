@@ -1,6 +1,6 @@
 <div *ngIf="imageGame && titleGame && charactersGame">
   <img src="{{ imageGame }}" alt="Foto de {{ titleGame }}" />
-  <ul>
+  <ul class="character-list">
     <li *ngFor="let character of charactersGame">
       <app-character [character]="character"></app-character>
     </li>
