@@ -11,7 +11,7 @@ import { ApiGame } from '../services/game.api';
 export class CharacterInGameComponent implements OnInit {
   idGame!: string;
   charactersGame!: Array<iCharacter>;
-  imageGame!: string;
+  imageGame?: string;
   titleGame!: string;
   constructor(public route: ActivatedRoute, public apiGame: ApiGame) {}
 
@@ -20,7 +20,7 @@ export class CharacterInGameComponent implements OnInit {
     this.apiGame.getOneGame(this.idGame).subscribe({
       next: (data) => {
         this.charactersGame = data.characters;
-        this.imageGame = data.image;
+        this.imageGame = data.img_detail;
         this.titleGame = data.title;
       },
     });

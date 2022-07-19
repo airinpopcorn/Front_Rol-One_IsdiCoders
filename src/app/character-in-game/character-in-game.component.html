@@ -1,6 +1,5 @@
 <div *ngIf="imageGame && titleGame && charactersGame">
   <img src="{{ imageGame }}" alt="Foto de {{ titleGame }}" />
-  <h1>{{ titleGame }}</h1>
   <ul>
     <li *ngFor="let character of charactersGame">
       <app-character [character]="character"></app-character>
