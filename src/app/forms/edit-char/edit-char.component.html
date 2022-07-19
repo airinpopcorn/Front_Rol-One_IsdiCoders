@@ -1,9 +1,12 @@
 <div *ngIf="character">
-  <img
-    class="CharImg"
-    src="{{ character?.image }}"
-    alt="Foto del personaje {{ character.name }}"
-  />
+  <div class="picture">
+    <img
+      class="CharImg"
+      src="{{ character?.image }}"
+      alt="Foto del personaje {{ character.name }}"
+    />
+  </div>
+
   <form [formGroup]="characterForm">
     <div *ngFor="let control of fbGroupData | keyvalue">
       <label
