@@ -16,7 +16,7 @@ describe('CreateCharComponent', () => {
   const mockCharacter: iCharacter = {
     name: 'testName',
     life: 'testLife',
-    strength: 'testStrength',
+    strength: 'testStrenght',
     intelligence: 'testIntelligence',
     constitution: 'testConstitution',
   };
