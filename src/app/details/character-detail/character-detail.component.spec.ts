@@ -10,6 +10,7 @@ import { CharacterDetailComponent } from './character-detail.component';
 
 describe('CharacterDetailComponent', () => {
   const mockCharacter = {
+    _id: '1',
     name: '',
     life: '',
     strength: '',
@@ -24,7 +25,7 @@ describe('CharacterDetailComponent', () => {
         email: '',
         password: '',
         role: '',
-        characters: [],
+        characters: [mockCharacter],
         games: [],
       },
       token: '',
