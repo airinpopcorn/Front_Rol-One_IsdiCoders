@@ -1,9 +1,4 @@
 @import url("https://fonts.googleapis.com/css2?family=Goblin+One&family=Macondo&display=swap");
-button {
-  background: none;
-  border: 0;
-  color: inherit;
-}
 
 *,
 *:before,
@@ -27,17 +22,6 @@ body {
   margin-top: 30px;
 }
 
-.slide-container {
-  margin: auto;
-  width: 600px;
-  text-align: center;
-}
-
-.wrapper {
-  padding-top: 40px;
-  padding-bottom: 40px;
-}
-
 .wrapper:focus {
   outline: 0;
 }
@@ -46,12 +30,12 @@ body {
   background: white;
   width: 20rem;
   display: inline-block;
-  margin: auto;
+  margin-top: 2rem;
+  margin-left: 5rem;
   border-radius: 19px;
   position: relative;
   text-align: center;
   box-shadow: -1px 15px 30px -12px black;
-  z-index: 9999;
 }
 
 .clash-card__image {
@@ -83,13 +67,15 @@ body {
 
 .clash-card__lifebar {
   display: flex;
+  justify-content: center;
+  gap: 1rem;
 }
 
 .clash-card__life {
   background-color: rgb(17, 171, 66);
   transform: skewX(-40deg);
   height: 1rem;
-  width: 100%;
+  width: 80%;
 }
 
 .clash-card__level--l5a {
@@ -127,7 +113,7 @@ body {
 }
 
 .clash-card__unit-stats .one-third {
-  width: 28%;
+  width: 33%;
   float: left;
   padding: 20px 15px;
 }
