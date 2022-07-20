@@ -45,13 +45,16 @@ describe('AppComponent', () => {
     it('Should fetch games data from the apiGame', () => {
       const fixture = TestBed.createComponent(AppComponent);
       const component = fixture.componentInstance;
+      spyOn(component.localStorage, 'getToken').and.returnValue('token');
       spyOn(component.game, 'getGames').and.returnValue(of([]));
+      component.token = 'token';
       spyOn(component.apiUser, 'loginUser').and.returnValue(
         of({
           user: { name: '', email: '', password: '', role: '' },
           token: 'token',
         })
       );
+
       spyOn(component.store, 'dispatch');
 
       fixture.detectChanges();
