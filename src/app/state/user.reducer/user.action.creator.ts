@@ -8,7 +8,7 @@ export const loadUser = createAction(
 
 export const updateUser = createAction(
   '[User] Update User',
-  props<{ data: Partial<iUserState> }>()
+  props<{ data: iUserState }>()
 );
 
 export const logoutUser = createAction('[User] Logout');

@@ -57,7 +57,7 @@ export class ApiUser {
     }
   }
 
-  updateUser(user: iUser): Observable<iUser> {
+  updateUser(id: iUser['_id'], user: iUser): Observable<iUser> {
     const httpOptions = {
       method: 'PATCH',
       headers: new HttpHeaders({
@@ -66,7 +66,7 @@ export class ApiUser {
       }),
     };
     return this.http.patch(
-      this.apiUrl + user._id,
+      this.apiUrl + id,
       user,
       httpOptions
     ) as Observable<iUser>;
