@@ -1,4 +1,3 @@
-import { NotExpr } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import {
   AbstractControl,
@@ -9,13 +8,9 @@ import {
 } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { iCharacter } from 'src/app/models/character';
 import { ApiCharacter } from 'src/app/services/characters.api';
 import { AppState } from 'src/app/state/app.state';
-import {
-  loadCharacters,
-  updateCharacter,
-} from 'src/app/state/character.reducer/character.actions.creators';
+import { updateCharacter } from 'src/app/state/character.reducer/character.actions.creators';
 import Swal from 'sweetalert2';
 
 @Component({

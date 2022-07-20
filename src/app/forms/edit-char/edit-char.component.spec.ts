@@ -4,7 +4,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ActivatedRoute, convertToParamMap } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 import { provideMockStore } from '@ngrx/store/testing';
-import { of } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { iCharacter } from 'src/app/models/character';
 import Swal from 'sweetalert2';
 
@@ -88,6 +88,13 @@ describe('EditCharComponent', () => {
   });
   describe('When calling handleEdit method', () => {
     it('Should called Swal.fire and store.dispatch', () => {
+      const fixture = TestBed.createComponent(EditCharComponent);
+      const component = fixture.componentInstance;
+      spyOn(component.apiCharacter, 'getOneCharacter').and.returnValue(
+        of(mockCharacter)
+      );
+
+      fixture.detectChanges();
       component.characterForm.setValue({
         name: 'testName',
         life: 'testLife',
@@ -98,6 +105,28 @@ describe('EditCharComponent', () => {
       });
       spyOn(component.apiCharacter, 'updateCharacter').and.returnValue(
         of(mockCharacter)
+      );
+      spyOn(Swal, 'fire');
+      spyOn(component.store, 'dispatch');
+      component.handleEdit();
+      expect(Swal.fire).toHaveBeenCalled();
+      expect(component.store.dispatch).toHaveBeenCalled();
+    });
+  });
+  describe('When calling handleEdit method', () => {
+    it('Should called Swal.fire and store.dispatch', () => {
+      const fixture = TestBed.createComponent(EditCharComponent);
+      const component = fixture.componentInstance;
+      spyOn(component.apiCharacter, 'getOneCharacter').and.returnValue(
+        of(mockCharacter)
+      );
+
+      fixture.detectChanges();
+      component.characterForm.getError('error');
+      spyOn(component.apiCharacter, 'updateCharacter').and.returnValue(
+        new Observable(() => {
+          throw new Error();
+        })
       );
       spyOn(Swal, 'fire');
       spyOn(component.store, 'dispatch');
