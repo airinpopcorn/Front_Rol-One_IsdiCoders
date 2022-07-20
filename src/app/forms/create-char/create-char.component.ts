@@ -83,7 +83,7 @@ export class CreateCharComponent implements OnInit {
       .addCharacter(this.characterForm.value, this.token)
       .subscribe({
         next: (data) => {
-          let newCharacterArr = this.user.characters;
+          let newCharacterArr: Array<iCharacter> = [];
 
           newCharacterArr = [...(newCharacterArr as Array<iCharacter>), data];
           const newUser = { ...this.user, characters: newCharacterArr };
