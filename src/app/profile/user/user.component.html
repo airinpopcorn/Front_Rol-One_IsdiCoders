@@ -9,8 +9,8 @@
         <p class="user-card-text">{{ user.email }}</p>
       </div>
       <div class="btn-row">
-        <button>EDIT</button>
-        <button>DELETE</button>
+        <button (click)="handleEdit()">EDIT</button>
+        <button (click)="handleDelete()">DELETE</button>
       </div>
     </div>
   </div>

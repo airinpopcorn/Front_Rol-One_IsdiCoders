@@ -4,20 +4,20 @@
   margin: 0;
   font-family: "Macondo", cursive;
 }
-section {
+.game-block {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-button {
-  background: none;
-  border: 0;
-  color: inherit;
+.image-container {
+  width: 12rem;
+  height: 18rem;
 }
 
-.gameImg {
-}
+/* .gameImg {
+  object-fit: fill;
+} */
 
 .gameTitle {
   font-size: 1.5rem;

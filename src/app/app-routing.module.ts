@@ -61,6 +61,13 @@ const routes: Routes = [
         (m) => m.EditCharModule
       ),
   },
+  {
+    path: MENU_OPTIONS[10].path,
+    loadChildren: () =>
+      import('./profile/edit-profile/edit-profile.module').then(
+        (m) => m.EditProfileModule
+      ),
+  },
 ];
 
 @NgModule({

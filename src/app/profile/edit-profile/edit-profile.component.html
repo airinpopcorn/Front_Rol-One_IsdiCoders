@@ -1,1 +1,29 @@
-<p>edit-profile works!</p>
+<form class="edit-profile">
+  <label for="name">Name</label>
+  <input
+    name="name"
+    class="edit__input"
+    type="text"
+    placeholder="{{ dataUser.name }}"
+    [(ngModel)]="updateUser.name"
+  />
+  <label for="email">Email</label>
+  <input
+    name="email"
+    class="edit__input"
+    type="email"
+    placeholder="{{ dataUser.email }}"
+    [(ngModel)]="updateUser.email"
+  />
+  <label for="password">Password</label>
+  <input
+    name="password"
+    class="edit__input"
+    type="password"
+    placeholder="*****"
+    [(ngModel)]="updateUser.password"
+  />
+  <button class="edit__submit" type="submit" (click)="handleEdit()">
+    EDIT
+  </button>
+</form>

@@ -1,10 +1,12 @@
+import { iUser } from './user';
+
 export interface iCharacterState {
   characters: Array<iCharacter>;
 }
 
 export interface iCharacter {
   _id?: string;
-  player?: iCharacter;
+  player?: iUser;
   idGame?: string;
   image?: string;
   name: string;

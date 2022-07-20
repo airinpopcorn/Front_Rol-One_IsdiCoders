@@ -54,6 +54,7 @@ describe('RegisterFormComponent', () => {
         email: '',
         password: '',
         role: 'master',
+        characters: [],
       };
       spyOn(component.apiUser, 'addUser').and.returnValue(
         of({ user: {} as iUser, token: 'token' })

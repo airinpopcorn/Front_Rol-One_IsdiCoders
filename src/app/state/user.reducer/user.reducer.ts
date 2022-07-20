@@ -14,5 +14,6 @@ export const userReducer = createReducer(
     user: { ...state.user, ...data.user },
     token: data.token ? data.token : state.token,
   })),
+
   on(ac.logoutUser, (state) => initialState)
 );

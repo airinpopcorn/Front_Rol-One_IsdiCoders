@@ -1,20 +1,28 @@
 <ng-container *ngIf="redirigir; else characterPage">
-  <button (click)="detailPage()">
-    <img
-      class="gameImg"
-      src="{{ game.image }}"
-      alt="Foto del juego {{ game.title }}"
-    />
-  </button>
-  <h2 class="gameTitle">{{ game.title }}</h2>
+  <div class="game-block">
+    <div class="image-container">
+      <img
+        role="button"
+        class="gameImg"
+        src="{{ game.image }}"
+        alt="Foto del juego {{ game.title }}"
+        (click)="detailPage()"
+      />
+    </div>
+    <h2 class="gameTitle">{{ game.title }}</h2>
+  </div>
 </ng-container>
 <ng-template #characterPage>
-  <button (click)="charPage()">
-    <img
-      class="gameImg"
-      src="{{ game.image }}"
-      alt="Foto del juego {{ game.title }}"
-    />
-  </button>
-  <h2 class="gameTitle">{{ game.title }}</h2>
+  <div class="game-block">
+    <div class="image-container">
+      <img
+        role="button"
+        class="gameImg"
+        src="{{ game.image }}"
+        alt="Foto del juego {{ game.title }}"
+        (click)="charPage()"
+      />
+    </div>
+    <h2 class="gameTitle">{{ game.title }}</h2>
+  </div>
 </ng-template>
