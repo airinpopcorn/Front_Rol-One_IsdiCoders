@@ -113,7 +113,7 @@ describe('EditCharComponent', () => {
       expect(component.store.dispatch).toHaveBeenCalled();
     });
   });
-  describe('When calling handleEdit method', () => {
+  describe('When calling handleEdit method with wrong data', () => {
     it('Should called Swal.fire and store.dispatch', () => {
       const fixture = TestBed.createComponent(EditCharComponent);
       const component = fixture.componentInstance;
@@ -122,17 +122,22 @@ describe('EditCharComponent', () => {
       );
 
       fixture.detectChanges();
-      component.characterForm.getError('error');
+      component.characterForm.setValue({
+        name: 'testName',
+        life: 'testLife',
+        strength: 'testStrength',
+        intelligence: 'testIntelligence',
+        constitution: 'testConstitution',
+        idGame: '1',
+      });
       spyOn(component.apiCharacter, 'updateCharacter').and.returnValue(
         new Observable(() => {
           throw new Error();
         })
       );
       spyOn(Swal, 'fire');
-      spyOn(component.store, 'dispatch');
       component.handleEdit();
       expect(Swal.fire).toHaveBeenCalled();
-      expect(component.store.dispatch).toHaveBeenCalled();
     });
   });
 });
