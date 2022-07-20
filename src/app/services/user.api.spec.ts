@@ -89,7 +89,7 @@ describe('ApiUser', () => {
   });
   describe('When calling service.updateUser', () => {
     it('Should be called httpClient', () => {
-      service.updateUser(mockUser.user).subscribe((resp) => {
+      service.updateUser(mockUser.user._id, mockUser.user).subscribe((resp) => {
         expect(resp).not.toBeNull();
         expect(JSON.stringify(resp)).toBe(JSON.stringify(mockUser.user));
       });
