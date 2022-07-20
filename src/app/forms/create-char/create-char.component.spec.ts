@@ -108,6 +108,7 @@ describe('CreateCharComponent', () => {
         of({ user: {}, token: 'token' })
       );
       component.token = 'token';
+      component.arrCharacters = [mockCharacter];
       spyOn(component.apiCharacter, 'addCharacter').and.returnValue(
         of({ ...mockCharacter, idGame: '1', player: mockUser })
       );

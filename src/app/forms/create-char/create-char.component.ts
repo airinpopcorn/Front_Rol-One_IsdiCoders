@@ -39,6 +39,7 @@ export class CreateCharComponent implements OnInit {
       [(control: AbstractControl<any, any>) => ValidationErrors | null]
     ];
   } = {};
+  arrCharacters!: Array<iCharacter>;
   characterForm!: FormGroup;
   idGame!: string;
   idUser!: string;
@@ -61,6 +62,7 @@ export class CreateCharComponent implements OnInit {
           this.user = data.user;
           this.idUser = data.user._id as string;
           this.token = data.token;
+          this.arrCharacters = data.user.characters as Array<iCharacter>;
         },
       });
     this.apiGame.getOneGame(this.idGame).subscribe({
@@ -83,10 +85,11 @@ export class CreateCharComponent implements OnInit {
       .addCharacter(this.characterForm.value, this.token)
       .subscribe({
         next: (data) => {
-          let newCharacterArr: Array<iCharacter> = [];
-
-          newCharacterArr = [...(newCharacterArr as Array<iCharacter>), data];
-          const newUser = { ...this.user, characters: newCharacterArr };
+          this.arrCharacters = [
+            ...(this.arrCharacters as Array<iCharacter>),
+            data,
+          ];
+          const newUser = { ...this.user, characters: this.arrCharacters };
           this.store.dispatch(loadUser({ user: newUser, token: this.token }));
           Swal.fire({
             icon: 'success',
