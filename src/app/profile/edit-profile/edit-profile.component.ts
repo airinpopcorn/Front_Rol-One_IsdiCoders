@@ -15,7 +15,6 @@ import Swal from 'sweetalert2';
 })
 export class EditProfileComponent implements OnInit {
   token!: string;
-  newUpdateUser!: iUser;
   dataUser!: iUser;
   updateUser!: {
     name: string;
@@ -48,7 +47,7 @@ export class EditProfileComponent implements OnInit {
       });
   }
   handleEdit() {
-    this.apiUser.updateUser(this.dataUser._id, this.newUpdateUser).subscribe({
+    this.apiUser.updateUser(this.dataUser._id, this.updateUser).subscribe({
       next: (data) => {
         console.log(data);
         this.store.dispatch(
