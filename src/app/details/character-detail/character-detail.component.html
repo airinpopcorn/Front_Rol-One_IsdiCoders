@@ -1,12 +1,6 @@
 <div class="clash-card l5a" *ngIf="character">
-  <div class="clash-card__image clash-card__image--l5a">
-    <img src="{{ character.image }}" alt="l5a" />
-  </div>
+  <p class="clash-card__title">DETAILS</p>
   <div class="clash-card__unit-name">{{ character.name }}</div>
-  <div class="buttons">
-    <button (click)="handleUpdate()">Update</button>
-    <button (click)="handleDelete()">Delete</button>
-  </div>
 
   <div class="clash-card__unit-stats clash-card__unit-stats--l5a clearfix">
     <div *ngFor="let property of character | keyvalue" class="one-third">
@@ -20,8 +14,13 @@
           property.key !== 'name'
         "
       >
-        <span>{{ property.key }}: </span> <span>{{ property.value }}</span>
+        <span class="properties">{{ property.key }}: </span>
+        <span class="properties">{{ property.value }}</span>
       </div>
     </div>
+  </div>
+  <div class="buttons">
+    <button (click)="handleUpdate()">Update</button>
+    <button (click)="handleDelete()">Delete</button>
   </div>
 </div>

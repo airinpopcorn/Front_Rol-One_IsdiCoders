@@ -23,53 +23,50 @@ body {
 }
 
 .clash-card {
-  background: white;
   width: 20rem;
-  display: inline-block;
-  margin-left: 5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2rem;
+  margin-left: 2rem;
   border-radius: 19px;
   position: relative;
   text-align: center;
   box-shadow: -1px 15px 30px -12px black;
+  background: url("https://i.pinimg.com/564x/88/37/a6/8837a69bcf30bd8a428f9b6bb9d22e48.jpg");
 }
 
-.clash-card__image {
-  height: 15rem;
-  margin-bottom: 16px;
-  border-top-left-radius: 14px;
-  border-top-right-radius: 14px;
-}
-
-.clash-card__image--l5a {
-  background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/barbarian-bg.jpg");
-}
-
-.clash-card__image--l5a img {
-  width: 14rem;
-  position: absolute;
-  top: 6px;
-  left: 36px;
+.clash-card__title {
+  font-family: "Macondo", cursive;
+  font-size: 2rem;
+  font-weight: 800;
+  border-bottom: 0.2rem solid;
+  margin-top: 1rem;
+  margin-bottom: 1.2rem;
 }
 
 .clash-card__unit-name {
-  font-size: 26px;
+  font-size: 1.5rem;
   color: black;
   font-family: "Macondo", cursive;
   font-weight: 900;
-  margin-bottom: 1.3rem;
 }
 
 .buttons {
   display: flex;
   justify-content: center;
   gap: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.buttons button {
+  background-color: rgb(72, 51, 31);
 }
 
 .clash-card__unit-stats {
   color: rgb(75, 66, 66);
   font-family: "Macondo", cursive;
   font-weight: 700;
-  margin-top: 1.2rem;
   margin-bottom: 1.2rem;
   border-bottom-left-radius: 14px;
   border-bottom-right-radius: 14px;
@@ -84,13 +81,14 @@ body {
 
 .clash-card__unit-stats .one-third .capitalize {
   text-transform: capitalize;
+  font-size: 1.2rem;
+  font-weight: 700;
 }
 
 .clash-card__unit-stats .stat {
   position: relative;
   font-family: "Macondo", cursive;
   font-size: 24px;
-  /* margin-bottom: 10px; */
 }
 
 .clash-card__unit-stats .stat-value {
