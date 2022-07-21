@@ -52,8 +52,8 @@ body {
 .clash-card__image--l5a img {
   width: 15rem;
   position: absolute;
-  top: 16px;
-  left: 2px;
+  top: 39px;
+  left: -7px;
 }
 
 .clash-card__level {
@@ -66,15 +66,27 @@ body {
 
 .clash-card__lifebar {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   gap: 1rem;
 }
 
-.clash-card__life {
+.clash-card__lifebar--top {
   background-color: rgb(17, 171, 66);
   transform: skewX(-40deg);
   height: 1rem;
   width: 80%;
+}
+.clash-card__lifebar--mid {
+  background-color: rgb(231, 212, 74);
+  transform: skewX(-40deg);
+  height: 1rem;
+  width: 45%;
+}
+.clash-card__lifebar--low {
+  background-color: rgb(220, 55, 55);
+  transform: skewX(-40deg);
+  height: 1rem;
+  width: 10%;
 }
 
 .clash-card__level--l5a {
