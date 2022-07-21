@@ -36,8 +36,6 @@ export class RegisterFormComponent implements OnInit {
   handleSubmit() {
     this.apiUser.addUser(this.dataUser).subscribe({
       next: (data) => {
-        console.log(data);
-
         Swal.fire({
           icon: 'success',
           title: ':)',
