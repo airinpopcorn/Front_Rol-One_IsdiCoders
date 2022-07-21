@@ -49,7 +49,6 @@ export class EditProfileComponent implements OnInit {
   handleEdit() {
     this.apiUser.updateUser(this.dataUser._id, this.updateUser).subscribe({
       next: (data) => {
-        console.log(data);
         this.store.dispatch(
           updateUser({
             data: {
