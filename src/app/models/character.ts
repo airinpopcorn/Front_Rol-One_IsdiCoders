@@ -9,6 +9,7 @@ export interface iCharacter {
   player?: iUser;
   idGame?: string;
   image?: string;
+  description?: string;
   name: string;
   life: string;
   strength: string;

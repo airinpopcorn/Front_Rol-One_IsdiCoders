@@ -2,17 +2,17 @@
   <div class="clash-card__image clash-card__image--l5a">
     <img src="{{ character.image }}" alt="l5a" />
   </div>
-  <div class="clash-card__lifebar">
-    <div class="clash-card__life"></div>
+  <div class="clash-card__lifebar" [ngSwitch]="character.life">
+    <div *ngSwitchCase="20" class="clash-card__lifebar--top"></div>
+    <div *ngSwitchCase="10" class="clash-card__lifebar--mid"></div>
+    <div *ngSwitchDefault class="clash-card__lifebar--low"></div>
     <div class="clash-card__level clash-card__level--l5a">
       {{ character.life }}
     </div>
   </div>
-
   <div class="clash-card__unit-name">{{ character.name }}</div>
   <div class="clash-card__unit-description">
-    The Barbarian is a kilt-clad Scottish warrior with an angry, battle-ready
-    expression, hungry for destruction. He has Killer yellow horseshoe mustache.
+    {{ character.description }}
   </div>
 
   <div class="clash-card__unit-stats clash-card__unit-stats--l5a clearfix">

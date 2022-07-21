@@ -9,6 +9,7 @@ import { iCharacter } from 'src/app/models/character';
 })
 export class CharacterComponent implements OnInit {
   @Input() character!: iCharacter;
+
   constructor(public router: Router) {}
 
   ngOnInit(): void {}
