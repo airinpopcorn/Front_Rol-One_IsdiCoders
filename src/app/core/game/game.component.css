@@ -12,13 +12,21 @@
 
 .image-container {
   width: 12rem;
-  height: 18rem;
 }
 
-/* .gameImg {
-  object-fit: fill;
-} */
+.gameImg {
+  border-radius: 20px;
+}
 
 .gameTitle {
   font-size: 1.5rem;
+  font-weight: 800;
+  margin-top: 1rem;
+}
+
+.gameTitle__players {
+  font-size: 1.5rem;
+  font-weight: 800;
+  margin-bottom: 2rem;
+  margin-top: 1rem;
 }
