@@ -19,9 +19,11 @@ img {
 
 .user-card-item {
   margin-top: 2rem;
-  margin-left: 5rem;
+  margin-left: 1rem;
   max-width: 350px;
   padding: 1rem;
+  display: flex;
+  flex-direction: column;
 }
 
 .user-card {

@@ -1,4 +1,6 @@
 .character-list {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
 }

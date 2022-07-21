@@ -31,7 +31,6 @@ body {
   width: 20rem;
   display: inline-block;
   margin-top: 2rem;
-  margin-left: 5rem;
   border-radius: 19px;
   position: relative;
   text-align: center;
@@ -47,7 +46,7 @@ body {
 }
 
 .clash-card__image--l5a {
-  background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/barbarian-bg.jpg");
+  background: url("https://i.pinimg.com/564x/88/37/a6/8837a69bcf30bd8a428f9b6bb9d22e48.jpg");
 }
 
 .clash-card__image--l5a img {
@@ -79,7 +78,7 @@ body {
 }
 
 .clash-card__level--l5a {
-  color: #8d3d0c;
+  color: rgb(72, 51, 31);
 }
 
 .clash-card__unit-name {
@@ -97,7 +96,7 @@ body {
 }
 
 .clash-card__unit-stats--l5a {
-  background: #8d3d0c;
+  background: rgb(72, 51, 31);
 }
 
 .clash-card__unit-stats--l5a .one-third {

@@ -14,7 +14,5 @@ export class CharacterDetailModule implements OnInit {
   idCharacter = this.route.snapshot.paramMap.get('id') as string;
   constructor(public route: ActivatedRoute) {}
 
-  ngOnInit(): void {
-    console.log(this.idCharacter);
-  }
+  ngOnInit(): void {}
 }
