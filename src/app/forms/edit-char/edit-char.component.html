@@ -1,12 +1,5 @@
 <div *ngIf="character">
-  <div class="picture">
-    <img
-      class="CharImg"
-      src="{{ character?.image }}"
-      alt="Foto del personaje {{ character.name }}"
-    />
-  </div>
-
+  <h3 class="title">EDIT YOUR CHARACTER</h3>
   <form [formGroup]="characterForm">
     <div *ngFor="let control of fbGroupData | keyvalue">
       <label
@@ -15,7 +8,8 @@
           control.key !== 'idGame' &&
           control.key !== '_id' &&
           control.key !== 'player' &&
-          control.key !== 'name'
+          control.key !== 'name' &&
+          control.key !== 'description'
         "
         class="capitalize"
         for=""
@@ -27,7 +21,8 @@
           control.key !== 'idGame' &&
           control.key !== '_id' &&
           control.key !== 'player' &&
-          control.key !== 'name'
+          control.key !== 'name' &&
+          control.key !== 'description'
         "
         class="editChar__input capitalize"
         type="text"
