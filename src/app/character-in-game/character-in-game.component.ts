@@ -13,6 +13,7 @@ export class CharacterInGameComponent implements OnInit {
   charactersGame!: Array<iCharacter>;
   imageGame?: string;
   titleGame!: string;
+
   constructor(public route: ActivatedRoute, public apiGame: ApiGame) {}
 
   ngOnInit(): void {

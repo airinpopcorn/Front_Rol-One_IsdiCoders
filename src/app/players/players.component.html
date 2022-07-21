@@ -1,5 +1,11 @@
-<ul *ngIf="gamesPlayers">
-  <li *ngFor="let game of gamesPlayers">
-    <app-game [redirigir]="false" [game]="game"></app-game>
-  </li>
-</ul>
+<div *ngIf="gamesPlayers; else noChar">
+  <ul>
+    <li *ngFor="let game of gamesPlayers">
+      <app-game [redirigir]="false" [game]="game"></app-game>
+    </li>
+  </ul>
+</div>
+
+<ng-template #noChar
+  ><p class="players-message">No tienes personajes creados actualmente</p>
+</ng-template>
