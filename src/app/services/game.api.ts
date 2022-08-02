@@ -9,7 +9,7 @@ import { iGameModel } from '../models/game';
 export class ApiGame {
   apiUrl: string;
   constructor(public http: HttpClient) {
-    this.apiUrl = 'http://localhost:9500/game/';
+    this.apiUrl = 'https://rol-one.herokuapp.com/game/';
   }
 
   getGames(): Observable<Array<iGameModel>> {

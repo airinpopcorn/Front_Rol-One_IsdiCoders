@@ -14,7 +14,7 @@ export class ApiCharacter {
     public http: HttpClient,
     public localStorage: LocalStorageService
   ) {
-    this.apiUrl = 'http://localhost:9500/character/';
+    this.apiUrl = 'https://rol-one.herokuapp.com/character/';
     this.token = localStorage.getToken() as string;
   }
 
